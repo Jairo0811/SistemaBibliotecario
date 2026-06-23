@@ -227,7 +227,7 @@ public class interfaz extends javax.swing.JFrame {
 
                         + "<p style='font-size:12px; margin-top:0; margin-bottom:14px;'>"
                         + "<b>VERSIÓN ORIGINAL</b><br>"
-                        + "Diciembre 2016"
+                        + "Noviembre 2016"
                         + "</p>"
 
                         + "<p style='font-size:12px; margin-top:0; margin-bottom:4px;'>"
