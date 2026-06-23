@@ -11,6 +11,7 @@
 
 package ventanas;
 
+import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -26,6 +27,8 @@ public class interfaz extends javax.swing.JFrame {
     /** Creates new form interfaz */
     public interfaz() {
         initComponents();
+
+        this.setSize(560, 420);
         this.setLocationRelativeTo(null);
 
         // Permite ejecutar el botón Login al presionar ENTER.
@@ -39,6 +42,8 @@ public class interfaz extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        panelLogin = new javax.swing.JPanel();
+        jLabelTitulo = new javax.swing.JLabel();
         jLabelicon = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -52,28 +57,34 @@ public class interfaz extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
         setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(0, 102, 204));
-        jButton1.setFont(new java.awt.Font("Papyrus", 1, 14));
+        jButton1.setFont(new java.awt.Font("Papyrus", java.awt.Font.BOLD, 16));
         jButton1.setText("Exit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(475, 0, 80, 32));
+
+        panelLogin.setBackground(new Color(255, 255, 255, 170));
+        panelLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(170, 170, 170)));
+        getContentPane().add(panelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 25, 330, 370));
+
+        jLabelTitulo.setFont(new java.awt.Font("Papyrus", 1, 25));
+        jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitulo.setText("Sistema Bibliotecario");
+        getContentPane().add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 45, 290, 35));
 
         jLabelicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/userrrrrr.png")));
-        getContentPane().add(jLabelicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 120, -1));
+        getContentPane().add(jLabelicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 88, 120, 95));
 
         jLabel1.setFont(new java.awt.Font("Papyrus", 1, 18));
         jLabel1.setText("Username:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 110, 20));
-
-        jLabel2.setFont(new java.awt.Font("Papyrus", 1, 18));
-        jLabel2.setText("Password:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 188, 120, 25));
 
         jTextuser.setFont(new java.awt.Font("Lucida Grande", 2, 14));
         jTextuser.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +92,11 @@ public class interfaz extends javax.swing.JFrame {
                 jTextuserActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 230, 30));
+        getContentPane().add(jTextuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 215, 230, 30));
+
+        jLabel2.setFont(new java.awt.Font("Papyrus", 1, 18));
+        jLabel2.setText("Password:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 250, 140, 25));
 
         jPassword.setFont(new java.awt.Font("Lucida Grande", 1, 14));
         jPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +104,7 @@ public class interfaz extends javax.swing.JFrame {
                 jButtonloginActionPerformed(evt);
             }
         });
-        getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 230, 30));
+        getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 278, 230, 30));
 
         jButtonlogin.setFont(new java.awt.Font("Papyrus", 1, 14));
         jButtonlogin.setText("Login");
@@ -98,7 +113,7 @@ public class interfaz extends javax.swing.JFrame {
                 jButtonloginActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, -1));
+        getContentPane().add(jButtonlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 322, 95, 32));
 
         jButton2.setFont(new java.awt.Font("Papyrus", 1, 14));
         jButton2.setText("Sign Up");
@@ -107,7 +122,7 @@ public class interfaz extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 322, 120, 32));
 
         jButtonAcercaDe.setFont(new java.awt.Font("Papyrus", 1, 14));
         jButtonAcercaDe.setText("Acerca de");
@@ -116,10 +131,19 @@ public class interfaz extends javax.swing.JFrame {
                 jButtonAcercaDeActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAcercaDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 120, -1));
+        getContentPane().add(jButtonAcercaDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 360, 130, 32));
 
-        jLabelfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondito.png")));
-        getContentPane().add(jLabelfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-210, 0, 770, 420));
+        ImageIcon fondoOriginal = new ImageIcon(getClass().getResource("/imagenes/fondito.png"));
+        Image fondoEscalado = fondoOriginal.getImage().getScaledInstance(560, 420, Image.SCALE_SMOOTH);
+        jLabelfondo.setIcon(new ImageIcon(fondoEscalado));
+        getContentPane().add(jLabelfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 420));
+
+        /*
+         * Orden visual correcto:
+         * fondo atrás, panel encima del fondo, controles encima del panel.
+         */
+        getContentPane().setComponentZOrder(jLabelfondo, getContentPane().getComponentCount() - 1);
+        getContentPane().setComponentZOrder(panelLogin, getContentPane().getComponentCount() - 2);
 
         pack();
     }
@@ -191,43 +215,43 @@ public class interfaz extends javax.swing.JFrame {
 
         JLabel texto = new JLabel(
                 "<html>"
-                        + "<div style='text-align:center; width:500px; font-family:Arial, sans-serif;'>"
+                        + "<div style='text-align:center; width:520px; font-family:Arial, sans-serif;'>"
 
-                        + "<h1 style='font-size:20px; margin-top:8px; margin-bottom:26px;'>"
+                        + "<h1 style='font-size:20px; margin-top:8px; margin-bottom:24px;'>"
                         + "SISTEMA BIBLIOTECARIO"
                         + "</h1>"
 
-                        + "<p style='font-size:12px; margin-top:0; margin-bottom:26px;'>"
+                        + "<p style='font-size:12px; margin-top:0; margin-bottom:24px;'>"
                         + "Proyecto Final desarrollado para la materia<br>"
                         + "<b>Programación 1</b><br>"
                         + "(SOF-003)"
                         + "</p>"
 
-                        + "<p style='font-size:12px; margin-top:0; margin-bottom:24px;'>"
+                        + "<p style='font-size:12px; margin-top:0; margin-bottom:22px;'>"
                         + "<b>INSTITUCIÓN</b><br>"
                         + "Instituto Tecnológico de las Américas (ITLA)"
                         + "</p>"
 
-                        + "<p style='font-size:12px; margin-top:0; margin-bottom:12px;'>"
+                        + "<p style='font-size:12px; margin-top:0; margin-bottom:10px;'>"
                         + "<b>INTEGRANTES</b>"
                         + "</p>"
 
-                        + "<table style='margin-left:auto; margin-right:auto; font-size:12px; line-height:1.45; margin-bottom:24px;'>"
-                        + "<tr><td style='text-align:left; padding-right:18px;'>Reydi Isaac Charles Frias</td><td style='text-align:left;'>2015-2965</td></tr>"
-                        + "<tr><td style='text-align:left; padding-right:18px;'>Francis Jairo Matias Rosario</td><td style='text-align:left;'>2015-2984</td></tr>"
-                        + "<tr><td style='text-align:left; padding-right:18px;'>Eduandy Isabel Cruz Abreu</td><td style='text-align:left;'>2015-3017</td></tr>"
-                        + "<tr><td style='text-align:left; padding-right:18px;'>Orlando Antonio Dominici Vanterpool</td><td style='text-align:left;'>2015-3029</td></tr>"
-                        + "<tr><td style='text-align:left; padding-right:18px;'>Freddy Nicolas Mejia Peña</td><td style='text-align:left;'>2015-3038</td></tr>"
+                        + "<table style='margin-left:auto; margin-right:auto; font-size:12px; line-height:1.45; margin-bottom:22px;'>"
+                        + "<tr><td style='text-align:left; padding-right:28px;'>Reydi Isaac Charles Frias</td><td style='text-align:left;'>2015-2965</td></tr>"
+                        + "<tr><td style='text-align:left; padding-right:28px;'>Francis Jairo Matias Rosario</td><td style='text-align:left;'>2015-2984</td></tr>"
+                        + "<tr><td style='text-align:left; padding-right:28px;'>Eduandy Isabel Cruz Abreu</td><td style='text-align:left;'>2015-3017</td></tr>"
+                        + "<tr><td style='text-align:left; padding-right:28px;'>Orlando Antonio Dominici Vanterpool</td><td style='text-align:left;'>2015-3029</td></tr>"
+                        + "<tr><td style='text-align:left; padding-right:28px;'>Freddy Nicolas Mejia Peña</td><td style='text-align:left;'>2015-3038</td></tr>"
                         + "</table>"
 
-                        + "<p style='font-size:12px; margin-top:0; margin-bottom:26px;'>"
+                        + "<p style='font-size:12px; margin-top:0; margin-bottom:22px;'>"
                         + "<b>PROFESOR</b><br>"
                         + "Keneth John Aponte Alonzo"
                         + "</p>"
 
                         + "<p style='font-size:12px; margin-top:0; margin-bottom:14px;'>"
-                        + "<b>VERSIÓN ORIGINAL</b><br>"
-                        + "Noviembre 2016"
+                        + "<b>VERSIÓN ACADÉMICA ORIGINAL</b><br>"
+                        + "Noviembre-Diciembre 2016"
                         + "</p>"
 
                         + "<p style='font-size:12px; margin-top:0; margin-bottom:4px;'>"
@@ -278,7 +302,9 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelfondo;
+    private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JLabel jLabelicon;
     private javax.swing.JPasswordField jPassword;
     private javax.swing.JTextField jTextuser;
+    private javax.swing.JPanel panelLogin;
 }
