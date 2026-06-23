@@ -1,128 +1,118 @@
 # 📚 Sistema Bibliotecario
 
-Proyecto final desarrollado originalmente en diciembre de 2016 para la materia **💻 Programación 1 (SOF-003)** en el **🏫 Instituto Tecnológico de las Américas (ITLA)**.
+Proyecto final desarrollado originalmente entre **noviembre y diciembre de 2016** para la materia **Programación 1 (SOF-003)** en el **Instituto Tecnológico de las Américas (ITLA)**.
 
-Este sistema fue desarrollado en **☕ Java Swing** utilizando **🧩 NetBeans**. Su propósito es simular operaciones básicas de un sistema bibliotecario, incluyendo registro de usuarios, inicio de sesión, compra de libros, préstamo de libros y generación de facturas o recibos.
+Este sistema fue desarrollado en **Java Swing** utilizando **NetBeans**. Su propósito es simular operaciones básicas de un sistema bibliotecario, incluyendo registro de usuarios, inicio de sesión, préstamo de libros, compra de libros y generación de facturas o recibos.
+
+---
 
 ## 📌 Información del proyecto
 
-- **📘 Materia:** Programación 1 (SOF-003)
-- **👨‍🏫 Profesor:** Keneth Aponte
-- **🏫 Institución:** Instituto Tecnológico de las Américas (ITLA)
-- **🗓️ Versión original:** Noviembre 2016
-- **🛠️ Mantenimiento y corrección de funcionalidades:** Junio 2026
+* **📘 Materia:** Programación 1 (SOF-003)
+* **👨‍🏫 Profesor:** Keneth John Aponte Alonzo
+* **🏫 Institución:** Instituto Tecnológico de las Américas (ITLA)
+* **🗓️ Versión académica original:** Noviembre-Diciembre 2016
+* **🛠️ Mantenimiento y corrección de funcionalidades:** Junio 2026
+
+---
 
 ## 👥 Integrantes
 
-| 👤 Nombre                           | 🆔 Matrícula |
-| ----------------------------------- | ------------ |
-| Reydi Isaac Charles Frias           | 2015-2965    |
-| Francis Jairo Matias Rosario        | 2015-2984    |
-| Eduandy Isabel Cruz Abreu           | 2015-3017    |
-| Orlando Antonio Dominici Vanterpool | 2015-3029    |
-| Freddy Nicolas Mejia Peña           | 2015-3038    |
+* Reydi Isaac Charles Frias — 2015-2965
+* Francis Jairo Matías Rosario — 2015-2984
+* Eduandy Isabel Cruz Abreu — 2015-3017
+* Orlando Antonio Dominici Vanterpool — 2015-3029
+* Freddy Nicolas Mejia Peña — 2015-3038
 
-## ⚙️ Funcionalidades principales
+---
 
-* 🔐 Inicio de sesión.
-* ⌨️ Navegación con la tecla Enter en los botones.
-* 📝 Registro de usuarios con validación de campos.
-* ℹ️ Pantalla “Acerca de” con información del proyecto e institución.
-* 🧭 Menú principal para seleccionar entre compra o préstamo de libros.
-* 🛒 Compra de libros con selección individual o selección completa.
-* 🧮 Cálculo del total de compra.
-* 🧾 Generación de factura dinámica.
-* 📖 Préstamo de libros con selección individual o selección completa.
-* 📄 Generación de recibo dinámico con fecha de devolución.
-* 🖨️ Botones de navegación, salida e impresión funcionales.
+## 🚀 Funcionalidades principales
+
+* Inicio de sesión con validación de usuario.
+* Registro de usuarios.
+* Menú principal con opciones de préstamo y compra.
+* Selección individual de libros.
+* Selección de todos los libros disponibles.
+* Cálculo del total de compra.
+* Generación de facturas de compra.
+* Generación de recibos de préstamo.
+* Logo del ITLA integrado en facturas y recibos.
+* Botones funcionales con tecla ENTER.
+* Opción de cerrar sesión.
+* Interfaz visual restaurada manteniendo el estilo original del proyecto.
+
+---
+
+## 🔐 Usuario de prueba
+
+Para acceder al sistema:
+
+```text
+Usuario: admin
+Contraseña: 1234
+```
+
+---
+
+## 🛠️ Mejoras realizadas en 2026
+
+* Corrección del flujo de navegación entre ventanas.
+* Validación básica de inicio de sesión.
+* Corrección de botones que no respondían correctamente.
+* Compatibilidad ajustada para versiones modernas de Java.
+* Actualización visual conservando el estilo original.
+* Fondo de libros aplicado de forma consistente.
+* Paneles semitransparentes para mejorar la lectura.
+* Ventana “Acerca de” actualizada con logo del ITLA e información del proyecto.
+* Facturas y recibos dinámicos.
+* Integración del logo del ITLA dentro de facturas y recibos.
+* Corrección de impresión simulada.
+* Limpieza de archivos generados y configuración de `.gitignore`.
+
+---
 
 ## 🧰 Tecnologías utilizadas
 
-* ☕ Java
-* 🖥️ Java Swing
-* 🧩 Apache NetBeans
-* 🐜 Ant
+* Java
+* Java Swing
+* NetBeans
+* Apache Ant
 
-## ✅ Requisitos
+---
 
-Para ejecutar el proyecto se recomienda tener instalado:
+## ▶️ Ejecución del proyecto
 
-* JDK 8 o superior.
-* Apache NetBeans.
-* Git, opcional para clonar el repositorio.
-
-El proyecto fue actualizado para compilar con:
-
-```properties
-javac.source=1.8
-javac.target=1.8
-```
-
-## ▶️ Cómo ejecutar el proyecto
-
-1. Clonar o descargar el repositorio.
-2. Abrir Apache NetBeans.
-3. Seleccionar **File > Open Project**.
-4. Abrir la carpeta:
+El proyecto puede ejecutarse desde NetBeans usando:
 
 ```text
-interfaces
+Clean and Build
+Run Project
 ```
 
-5. Ejecutar el proyecto desde NetBeans usando **Run Project** o la tecla **F6**.
+También puede ejecutarse el archivo `.jar` generado dentro de la carpeta `dist`, si fue compilado correctamente.
 
-La clase principal del proyecto es:
+---
+
+## 📂 Estructura general
 
 ```text
-ventanas.interfaz
+src/
+ ├── imagenes/
+ │   ├── fondito.png
+ │   ├── itla.png
+ │   └── userrrrrr.png
+ └── ventanas/
+     ├── interfaz.java
+     ├── Registro.java
+     ├── Decision.java
+     ├── Comprarlibros.java
+     ├── prestamos.java
+     └── facturas.java
 ```
 
-## 📁 Estructura general
+---
 
-```text
-SistemaBibliotecario/
-├── interfaces/
-│   ├── src/
-│   │   ├── imagenes/
-│   │   └── ventanas/
-│   │       ├── interfaz.java
-│   │       ├── Registro.java
-│   │       ├── Decision.java
-│   │       ├── Comprarlibros.java
-│   │       ├── prestamos.java
-│   │       └── facturas.java
-│   ├── nbproject/
-│   └── build.xml
-└── README.md
-```
+## 📝 Nota
 
-## ⚠️ Nota sobre archivos generados
-
-Las carpetas `build` y `dist` son generadas automáticamente por NetBeans al compilar el proyecto. No forman parte del código fuente principal y no deben subirse al repositorio.
-
-Archivos que deben evitarse en Git:
-
-```text
-interfaces/build/
-interfaces/dist/
-*.class
-```
-
-## 🛠️ Estado del mantenimiento 2026
-
-En junio de 2026 se realizó una revisión del proyecto original para corregir desperfectos funcionales y permitir su ejecución en un entorno moderno de NetBeans y Java.
-
-Las correcciones incluyeron:
-
-* ✅ Compatibilidad con Java 8.
-* ✅ Conexión funcional del login con el menú principal.
-* ✅ Corrección del registro de usuarios.
-* ✅ Activación de botones mediante Enter.
-* ✅ Corrección de navegación entre ventanas.
-* ✅ Restauración de compra y préstamo de libros.
-* ✅ Generación dinámica de facturas y recibos.
-* ✅ Inclusión del logo del ITLA en la pantalla “Acerca de”.
-
-## 📜 Licencia
-
-Proyecto académico creado con fines educativos.
+Este repositorio conserva la esencia académica del proyecto original de 2016.
+Las modificaciones realizadas en 2026 corresponden a mantenimiento, corrección de funcionalidades y mejoras visuales sin alterar el concepto base del sistema.

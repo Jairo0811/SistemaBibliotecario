@@ -1,40 +1,21 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * interfaz.java
- *
- * Created on Nov 22, 2016, 10:24:28 AM
- */
-
 package ventanas;
 
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author eddygrullon
- */
 public class interfaz extends javax.swing.JFrame {
 
-    /** Creates new form interfaz */
     public interfaz() {
         initComponents();
 
         this.setSize(560, 420);
         this.setLocationRelativeTo(null);
 
-        // Permite ejecutar el botón Login al presionar ENTER.
         this.getRootPane().setDefaultButton(jButtonlogin);
 
-        // Permite activar botones con ENTER cuando tienen el foco.
         activarEnterEnBotones(jButton1, jButtonlogin, jButton2, jButtonAcercaDe);
     }
 
@@ -138,10 +119,6 @@ public class interfaz extends javax.swing.JFrame {
         jLabelfondo.setIcon(new ImageIcon(fondoEscalado));
         getContentPane().add(jLabelfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 420));
 
-        /*
-         * Orden visual correcto:
-         * fondo atrás, panel encima del fondo, controles encima del panel.
-         */
         getContentPane().setComponentZOrder(jLabelfondo, getContentPane().getComponentCount() - 1);
         getContentPane().setComponentZOrder(panelLogin, getContentPane().getComponentCount() - 2);
 
@@ -174,9 +151,16 @@ public class interfaz extends javax.swing.JFrame {
             return;
         }
 
-        Decision menu = new Decision();
-        menu.setVisible(true);
-        dispose();
+        if (usuario.equals("admin") && password.equals("1234")) {
+            Decision menu = new Decision();
+            menu.setVisible(true);
+            dispose();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Usuario o contraseña incorrectos.",
+                    "Acceso denegado",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void jButtonAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,9 +168,24 @@ public class interfaz extends javax.swing.JFrame {
     }
 
     private void mostrarAcercaDe() {
-        JPanel panel = new JPanel();
-        panel.setLayout(new javax.swing.BoxLayout(panel, javax.swing.BoxLayout.Y_AXIS));
-        panel.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 25, 12, 25));
+        final javax.swing.JDialog dialogo = new javax.swing.JDialog(this, "Acerca de", true);
+        dialogo.setSize(720, 820);
+        dialogo.setLocationRelativeTo(this);
+        dialogo.setResizable(false);
+        dialogo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.JLabel fondoAcerca = new javax.swing.JLabel();
+        ImageIcon fondoOriginal = new ImageIcon(getClass().getResource("/imagenes/fondito.png"));
+        Image fondoEscalado = fondoOriginal.getImage().getScaledInstance(720, 760, Image.SCALE_SMOOTH);
+        fondoAcerca.setIcon(new ImageIcon(fondoEscalado));
+
+        javax.swing.JPanel panelContenido = new javax.swing.JPanel();
+        panelContenido.setLayout(new javax.swing.BoxLayout(panelContenido, javax.swing.BoxLayout.Y_AXIS));
+        panelContenido.setBackground(new java.awt.Color(255, 255, 255, 210));
+        panelContenido.setBorder(javax.swing.BorderFactory.createCompoundBorder(
+                javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)),
+                javax.swing.BorderFactory.createEmptyBorder(10, 25, 10, 25)
+        ));
 
         JLabel logo = new JLabel();
         logo.setAlignmentX(JLabel.CENTER_ALIGNMENT);
@@ -195,11 +194,10 @@ public class interfaz extends javax.swing.JFrame {
 
         if (rutaLogo != null) {
             ImageIcon iconoOriginal = new ImageIcon(rutaLogo);
-
             int anchoOriginal = iconoOriginal.getIconWidth();
             int altoOriginal = iconoOriginal.getIconHeight();
 
-            int anchoDeseado = 210;
+            int anchoDeseado = 185;
             int altoCalculado = (anchoDeseado * altoOriginal) / anchoOriginal;
 
             Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(
@@ -209,67 +207,67 @@ public class interfaz extends javax.swing.JFrame {
             );
 
             logo.setIcon(new ImageIcon(imagenEscalada));
-            panel.add(logo);
-            panel.add(javax.swing.Box.createVerticalStrut(15));
+            panelContenido.add(logo);
+            panelContenido.add(javax.swing.Box.createVerticalStrut(8));
         }
 
         JLabel texto = new JLabel(
                 "<html>"
-                        + "<div style='text-align:center; width:520px; font-family:Arial, sans-serif;'>"
-
-                        + "<h1 style='font-size:20px; margin-top:8px; margin-bottom:24px;'>"
-                        + "SISTEMA BIBLIOTECARIO"
-                        + "</h1>"
-
-                        + "<p style='font-size:12px; margin-top:0; margin-bottom:24px;'>"
-                        + "Proyecto Final desarrollado para la materia<br>"
-                        + "<b>Programación 1</b><br>"
-                        + "(SOF-003)"
+                        + "<div style='text-align:center; width:380px; margin-left:auto; margin-right:auto; font-family:Papyrus, Arial, sans-serif;'>"
+                        + "<h1 style='font-size:15px; margin-top:2px; margin-bottom:10px;'>Sistema Bibliotecario</h1>"
+                        + "<p style='font-size:9px; margin-top:0; margin-bottom:10px;'>Proyecto Final desarrollado para la materia<br>"
+                        + "<b>Programación 1</b><br>(SOF-003)</p>"
+                        + "<p style='font-size:9px; margin-top:0; margin-bottom:10px;'><b>INSTITUCIÓN</b><br>"
+                        + "Instituto Tecnológico de las Américas (ITLA)</p>"
+                        + "<p style='font-size:9px; margin-top:0; margin-bottom:5px;'><b>INTEGRANTES</b></p>"
+                        + "<p style='font-size:9px; line-height:1.25; margin-top:0; margin-bottom:10px;'>"
+                        + "Reydi Isaac Charles Frias<br>2015-2965<br>"
+                        + "Francis Jairo Matias Rosario<br>2015-2984<br>"
+                        + "Eduandy Isabel Cruz Abreu<br>2015-3017<br>"
+                        + "Orlando Antonio Dominici Vanterpool<br>2015-3029<br>"
+                        + "Freddy Nicolas Mejia Peña<br>2015-3038"
                         + "</p>"
-
-                        + "<p style='font-size:12px; margin-top:0; margin-bottom:22px;'>"
-                        + "<b>INSTITUCIÓN</b><br>"
-                        + "Instituto Tecnológico de las Américas (ITLA)"
-                        + "</p>"
-
-                        + "<p style='font-size:12px; margin-top:0; margin-bottom:10px;'>"
-                        + "<b>INTEGRANTES</b>"
-                        + "</p>"
-
-                        + "<table style='margin-left:auto; margin-right:auto; font-size:12px; line-height:1.45; margin-bottom:22px;'>"
-                        + "<tr><td style='text-align:left; padding-right:28px;'>Reydi Isaac Charles Frias</td><td style='text-align:left;'>2015-2965</td></tr>"
-                        + "<tr><td style='text-align:left; padding-right:28px;'>Francis Jairo Matias Rosario</td><td style='text-align:left;'>2015-2984</td></tr>"
-                        + "<tr><td style='text-align:left; padding-right:28px;'>Eduandy Isabel Cruz Abreu</td><td style='text-align:left;'>2015-3017</td></tr>"
-                        + "<tr><td style='text-align:left; padding-right:28px;'>Orlando Antonio Dominici Vanterpool</td><td style='text-align:left;'>2015-3029</td></tr>"
-                        + "<tr><td style='text-align:left; padding-right:28px;'>Freddy Nicolas Mejia Peña</td><td style='text-align:left;'>2015-3038</td></tr>"
-                        + "</table>"
-
-                        + "<p style='font-size:12px; margin-top:0; margin-bottom:22px;'>"
-                        + "<b>PROFESOR</b><br>"
-                        + "Keneth John Aponte Alonzo"
-                        + "</p>"
-
-                        + "<p style='font-size:12px; margin-top:0; margin-bottom:14px;'>"
-                        + "<b>VERSIÓN ACADÉMICA ORIGINAL</b><br>"
-                        + "Noviembre-Diciembre 2016"
-                        + "</p>"
-
-                        + "<p style='font-size:12px; margin-top:0; margin-bottom:4px;'>"
-                        + "<b>MANTENIMIENTO Y CORRECCIÓN DE FUNCIONALIDADES</b><br>"
-                        + "Junio 2026"
-                        + "</p>"
-
+                        + "<p style='font-size:9px; margin-top:0; margin-bottom:10px;'><b>PROFESOR</b><br>"
+                        + "Keneth John Aponte Alonzo</p>"
+                        + "<p style='font-size:9px; margin-top:0; margin-bottom:8px;'><b>VERSIÓN ACADÉMICA ORIGINAL</b><br>"
+                        + "Noviembre 2016</p>"
+                        + "<p style='font-size:9px; margin-top:0; margin-bottom:2px;'>"
+                        + "<b>MANTENIMIENTO Y CORRECCIÓN<br>DE FUNCIONALIDADES</b><br>"
+                        + "Junio 2026</p>"
                         + "</div>"
                         + "</html>");
 
         texto.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-        panel.add(texto);
+        panelContenido.add(texto);
 
-        JOptionPane.showMessageDialog(
-                this,
-                panel,
-                "Acerca de",
-                JOptionPane.PLAIN_MESSAGE);
+        javax.swing.JButton aceptar = new javax.swing.JButton("Aceptar");
+        aceptar.setFont(new java.awt.Font("Papyrus", java.awt.Font.BOLD, 14));
+        aceptar.setAlignmentX(javax.swing.JButton.CENTER_ALIGNMENT);
+        aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dialogo.dispose();
+            }
+        });
+
+        panelContenido.add(javax.swing.Box.createVerticalStrut(8));
+        panelContenido.add(aceptar);
+
+        aceptar.getInputMap(javax.swing.JComponent.WHEN_FOCUSED).put(
+                javax.swing.KeyStroke.getKeyStroke("ENTER"),
+                "pressEnter"
+        );
+
+        aceptar.getActionMap().put("pressEnter", new javax.swing.AbstractAction() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                aceptar.doClick();
+            }
+        });
+
+        dialogo.add(panelContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 560, 720));
+        dialogo.add(fondoAcerca, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 820));
+
+        dialogo.getRootPane().setDefaultButton(aceptar);
+        dialogo.setVisible(true);
     }
 
     private void activarEnterEnBotones(javax.swing.JButton... botones) {

@@ -1,7 +1,13 @@
 package ventanas;
 
+import java.awt.Image;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 
 public class facturas extends javax.swing.JFrame {
 
@@ -11,16 +17,16 @@ public class facturas extends javax.swing.JFrame {
         this.detalleFactura = generarFacturaEjemplo();
         initComponents();
         this.setLocationRelativeTo(null);
-        factura.setText(detalleFactura);
+        cargarFacturaConLogo();
 
         activarEnterEnBotones(exit, imprimir, atras);
     }
 
     public facturas(String detalleFactura) {
-        this.detalleFactura = detalleFactura;
+        this.detalleFactura = centrarTituloSistema(detalleFactura);
         initComponents();
         this.setLocationRelativeTo(null);
-        factura.setText(detalleFactura);
+        cargarFacturaConLogo();
 
         activarEnterEnBotones(exit, imprimir, atras);
     }
@@ -30,9 +36,13 @@ public class facturas extends javax.swing.JFrame {
         return formato.format(new Date());
     }
 
+    private String centrarTituloSistema(String texto) {
+        return texto.replace("        SISTEMA BIBLIOTECARIO", "           SISTEMA BIBLIOTECARIO");
+    }
+
     private String generarFacturaEjemplo() {
         return "========================================\n"
-                + "        SISTEMA BIBLIOTECARIO\n"
+                + "           SISTEMA BIBLIOTECARIO\n"
                 + "========================================\n\n"
                 + "FACTURA DE COMPRA / PRESTAMO\n\n"
                 + "Fecha: " + obtenerFechaActual() + "\n"
@@ -57,12 +67,61 @@ public class facturas extends javax.swing.JFrame {
                 + "ITLA - Diciembre 2016";
     }
 
+    private void cargarFacturaConLogo() {
+        factura.setText("");
+
+        StyledDocument documento = factura.getStyledDocument();
+
+        try {
+            Style estiloCentrado = factura.addStyle("centrado", null);
+            StyleConstants.setAlignment(estiloCentrado, StyleConstants.ALIGN_CENTER);
+
+            Style estiloTexto = factura.addStyle("texto", null);
+            StyleConstants.setFontFamily(estiloTexto, "Monospaced");
+            StyleConstants.setFontSize(estiloTexto, 13);
+
+            java.net.URL rutaLogo = getClass().getResource("/imagenes/itla.png");
+
+            if (rutaLogo != null) {
+                ImageIcon logoOriginal = new ImageIcon(rutaLogo);
+
+                int anchoOriginal = logoOriginal.getIconWidth();
+                int altoOriginal = logoOriginal.getIconHeight();
+
+                int anchoDeseado = 120;
+                int altoCalculado = (anchoDeseado * altoOriginal) / anchoOriginal;
+
+                Image logoEscalado = logoOriginal.getImage().getScaledInstance(
+                        anchoDeseado,
+                        altoCalculado,
+                        Image.SCALE_SMOOTH
+                );
+
+                Style estiloLogo = factura.addStyle("logo", null);
+                StyleConstants.setIcon(estiloLogo, new ImageIcon(logoEscalado));
+
+                documento.insertString(documento.getLength(), "\n", estiloCentrado);
+                documento.insertString(documento.getLength(), " ", estiloLogo);
+                documento.insertString(documento.getLength(), "\n\n", estiloCentrado);
+            }
+
+            documento.insertString(documento.getLength(), detalleFactura, estiloTexto);
+
+            documento.setParagraphAttributes(0, documento.getLength(), estiloCentrado, false);
+
+            factura.setCaretPosition(0);
+
+        } catch (BadLocationException e) {
+            factura.setText(detalleFactura);
+        }
+    }
+
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
         fondo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        factura = new javax.swing.JTextArea();
+        factura = new javax.swing.JTextPane();
         exit = new javax.swing.JButton();
         imprimir = new javax.swing.JButton();
         atras = new javax.swing.JButton();
@@ -71,22 +130,20 @@ public class facturas extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        factura.setColumns(20);
-        factura.setRows(5);
         factura.setEditable(false);
         factura.setFont(new java.awt.Font("Monospaced", 0, 13));
-        factura.setLineWrap(false);
         jScrollPane1.setViewportView(factura);
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 350, 300));
 
-        exit.setFont(new java.awt.Font("Papyrus", 1, 16));
+        exit.setBackground(new java.awt.Color(0, 102, 204));
+        exit.setFont(new java.awt.Font("Papyrus", java.awt.Font.BOLD, 16));
         exit.setText("Exit");
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitActionPerformed(evt);
             }
         });
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, -1, -1));
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(475, 0, 80, 32));
 
         imprimir.setFont(new java.awt.Font("Papyrus", 1, 16));
         imprimir.setText("Imprimir");
@@ -107,7 +164,7 @@ public class facturas extends javax.swing.JFrame {
         getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondito.png")));
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 410));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 430));
 
         pack();
         setSize(560, 430);
@@ -146,23 +203,6 @@ public class facturas extends javax.swing.JFrame {
     }
 
     public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(facturas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(facturas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(facturas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(facturas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new facturas().setVisible(true);
@@ -172,7 +212,7 @@ public class facturas extends javax.swing.JFrame {
 
     private javax.swing.JButton atras;
     private javax.swing.JButton exit;
-    private javax.swing.JTextArea factura;
+    private javax.swing.JTextPane factura;
     private javax.swing.JLabel fondo;
     private javax.swing.JButton imprimir;
     private javax.swing.JScrollPane jScrollPane1;

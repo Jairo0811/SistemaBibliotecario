@@ -11,6 +11,10 @@
 
 package ventanas;
 
+import java.awt.Color;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author eddygrullon
@@ -20,6 +24,8 @@ public class Registro extends javax.swing.JFrame {
     /** Creates new form Registro */
     public Registro() {
         initComponents();
+
+        this.setSize(560, 420);
         this.setLocationRelativeTo(null);
 
         activarEnterEnBotones(savetext, backtext, exit);
@@ -28,6 +34,8 @@ public class Registro extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
+        panelRegistro = new javax.swing.JPanel();
+        titulo = new javax.swing.JLabel();
         nombres = new javax.swing.JLabel();
         Apellidos = new javax.swing.JLabel();
         Email = new javax.swing.JLabel();
@@ -47,68 +55,99 @@ public class Registro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        nombres.setFont(new java.awt.Font("Papyrus", 1, 18));
-        nombres.setText("Nombres:");
-        getContentPane().add(nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, 40));
-
-        Apellidos.setFont(new java.awt.Font("Papyrus", 1, 18));
-        Apellidos.setText("Apellidos:");
-        getContentPane().add(Apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
-
-        Email.setFont(new java.awt.Font("Papyrus", 1, 18));
-        Email.setText("E-mail:");
-        getContentPane().add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Papyrus", 1, 18));
-        jLabel1.setText("Nombre de usuario:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Papyrus", 1, 18));
-        jLabel2.setText("Contraseña:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Papyrus", 1, 18));
-        jLabel3.setText("Confirmar contraseña:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
-
-        getContentPane().add(nombrestext, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 340, -1));
-        getContentPane().add(Apellidotext, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 340, -1));
-        getContentPane().add(emailtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 340, -1));
-        getContentPane().add(usuariotext, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 270, -1));
-        getContentPane().add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 320, -1));
-        getContentPane().add(contraa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 240, -1));
-
-        savetext.setFont(new java.awt.Font("Papyrus", 1, 14));
-        savetext.setText("Save");
-        savetext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                savetextActionPerformed(evt);
-            }
-        });
-        getContentPane().add(savetext, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, -1));
-
-        backtext.setFont(new java.awt.Font("Papyrus", 1, 14));
-        backtext.setText("Back");
-        backtext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backtextActionPerformed(evt);
-            }
-        });
-        getContentPane().add(backtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
-
-        exit.setFont(new java.awt.Font("Papyrus", 1, 14));
+        exit.setBackground(new java.awt.Color(0, 102, 204));
+        exit.setFont(new java.awt.Font("Papyrus", java.awt.Font.BOLD, 16));
         exit.setText("Exit");
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitActionPerformed(evt);
             }
         });
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, -1, -1));
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(475, 0, 80, 32));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondito.png")));
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -170, 530, 550));
+        panelRegistro.setBackground(new Color(255, 255, 255, 170));
+        panelRegistro.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(170, 170, 170)));
+        getContentPane().add(panelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 35, 470, 335));
+
+        titulo.setFont(new java.awt.Font("Papyrus", 1, 26));
+        titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titulo.setText("Registro de Usuario");
+        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 360, 35));
+
+        nombres.setFont(new java.awt.Font("Papyrus", 1, 18));
+        nombres.setText("Nombres:");
+        getContentPane().add(nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 130, 25));
+
+        nombrestext.setFont(new java.awt.Font("Lucida Grande", 0, 14));
+        getContentPane().add(nombrestext, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 260, 28));
+
+        Apellidos.setFont(new java.awt.Font("Papyrus", 1, 18));
+        Apellidos.setText("Apellidos:");
+        getContentPane().add(Apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 138, 130, 25));
+
+        Apellidotext.setFont(new java.awt.Font("Lucida Grande", 0, 14));
+        getContentPane().add(Apellidotext, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 138, 260, 28));
+
+        Email.setFont(new java.awt.Font("Papyrus", 1, 18));
+        Email.setText("E-mail:");
+        getContentPane().add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 176, 130, 25));
+
+        emailtext.setFont(new java.awt.Font("Lucida Grande", 0, 14));
+        getContentPane().add(emailtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 176, 260, 28));
+
+        jLabel1.setFont(new java.awt.Font("Papyrus", 1, 18));
+        jLabel1.setText("Nombre de usuario:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 214, 190, 25));
+
+        usuariotext.setFont(new java.awt.Font("Lucida Grande", 0, 14));
+        getContentPane().add(usuariotext, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 214, 200, 28));
+
+        jLabel2.setFont(new java.awt.Font("Papyrus", 1, 18));
+        jLabel2.setText("Contraseña:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 252, 150, 25));
+
+        contra.setFont(new java.awt.Font("Lucida Grande", 1, 14));
+        getContentPane().add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 252, 260, 28));
+
+        jLabel3.setFont(new java.awt.Font("Papyrus", 1, 18));
+        jLabel3.setText("Confirmar contraseña:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 210, 25));
+
+        contraa2.setFont(new java.awt.Font("Lucida Grande", 1, 14));
+        getContentPane().add(contraa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 180, 28));
+
+        backtext.setFont(new java.awt.Font("Papyrus", 1, 16));
+        backtext.setText("Back");
+        backtext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backtextActionPerformed(evt);
+            }
+        });
+        getContentPane().add(backtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 335, 90, 32));
+
+        savetext.setFont(new java.awt.Font("Papyrus", 1, 16));
+        savetext.setText("Save");
+        savetext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savetextActionPerformed(evt);
+            }
+        });
+        getContentPane().add(savetext, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 335, 90, 32));
+
+        ImageIcon fondoOriginal = new ImageIcon(getClass().getResource("/imagenes/fondito.png"));
+        Image fondoEscalado = fondoOriginal.getImage().getScaledInstance(560, 420, Image.SCALE_SMOOTH);
+        fondo.setIcon(new ImageIcon(fondoEscalado));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 420));
+
+        /*
+         * Orden visual:
+         * fondo atrás, panel encima del fondo, controles encima del panel.
+         */
+        getContentPane().setComponentZOrder(fondo, getContentPane().getComponentCount() - 1);
+        getContentPane().setComponentZOrder(panelRegistro, getContentPane().getComponentCount() - 2);
 
         pack();
     }
@@ -195,6 +234,8 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel nombres;
     private javax.swing.JTextField nombrestext;
+    private javax.swing.JPanel panelRegistro;
     private javax.swing.JButton savetext;
+    private javax.swing.JLabel titulo;
     private javax.swing.JTextField usuariotext;
 }

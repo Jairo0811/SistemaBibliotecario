@@ -1,7 +1,10 @@
 package ventanas;
 
+import java.awt.Color;
+import java.awt.Image;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.ImageIcon;
 
 public class Comprarlibros extends javax.swing.JFrame {
 
@@ -24,6 +27,7 @@ public class Comprarlibros extends javax.swing.JFrame {
 
     public Comprarlibros() {
         initComponents();
+        this.setSize(560, 420);
         this.setLocationRelativeTo(null);
         cargarLibrosDisponibles();
 
@@ -78,6 +82,7 @@ public class Comprarlibros extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
+        panelCompra = new javax.swing.JPanel();
         Listadelibros = new javax.swing.JLabel();
         librosselec = new javax.swing.JLabel();
         libros = new javax.swing.JTextArea();
@@ -96,25 +101,41 @@ public class Comprarlibros extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton5.setBackground(new java.awt.Color(0, 102, 204));
+        jButton5.setFont(new java.awt.Font("Papyrus", java.awt.Font.BOLD, 16));
+        jButton5.setText("Exit");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(475, 0, 80, 32));
+
+        panelCompra.setBackground(new Color(255, 255, 255, 170));
+        panelCompra.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(170, 170, 170)));
+        getContentPane().add(panelCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 35, 525, 350));
+
         Listadelibros.setFont(new java.awt.Font("Papyrus", 1, 18));
         Listadelibros.setText("Lista de libros:");
-        getContentPane().add(Listadelibros, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
-
-        librosselec.setFont(new java.awt.Font("Papyrus", 1, 18));
-        librosselec.setText("Lista de libros seleccionados:");
-        getContentPane().add(librosselec, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        getContentPane().add(Listadelibros, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 45, 180, 25));
 
         libros.setColumns(20);
         libros.setRows(5);
         libros.setEditable(false);
+        libros.setFont(new java.awt.Font("Monospaced", 0, 13));
         jScrollPaneLibros.setViewportView(libros);
-        getContentPane().add(jScrollPaneLibros, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 340, 130));
+        getContentPane().add(jScrollPaneLibros, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 75, 330, 115));
+
+        librosselec.setFont(new java.awt.Font("Papyrus", 1, 18));
+        librosselec.setText("Lista de libros seleccionados:");
+        getContentPane().add(librosselec, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 280, 25));
 
         seleccionados.setColumns(20);
         seleccionados.setRows(5);
         seleccionados.setEditable(false);
+        seleccionados.setFont(new java.awt.Font("Monospaced", 0, 13));
         jScrollPaneSeleccionados.setViewportView(seleccionados);
-        getContentPane().add(jScrollPaneSeleccionados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 340, 130));
+        getContentPane().add(jScrollPaneSeleccionados, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 330, 125));
 
         jButton1.setFont(new java.awt.Font("Papyrus", 1, 16));
         jButton1.setText("Seleccionar");
@@ -123,7 +144,7 @@ public class Comprarlibros extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 135, 34));
 
         jButton2.setFont(new java.awt.Font("Papyrus", 1, 16));
         jButton2.setText("Seleccionar todo");
@@ -132,16 +153,7 @@ public class Comprarlibros extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
-
-        jButton4.setFont(new java.awt.Font("Papyrus", 1, 16));
-        jButton4.setText("Comprar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 125, 165, 34));
 
         jButton3.setFont(new java.awt.Font("Papyrus", 1, 16));
         jButton3.setText("Calcular");
@@ -150,16 +162,16 @@ public class Comprarlibros extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 225, 120, 34));
 
-        jButton5.setFont(new java.awt.Font("Papyrus", 1, 16));
-        jButton5.setText("Exit");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setFont(new java.awt.Font("Papyrus", 1, 16));
+        jButton4.setText("Comprar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 120, 34));
 
         jButton6.setFont(new java.awt.Font("Papyrus", 1, 16));
         jButton6.setText("Crear factura");
@@ -168,10 +180,15 @@ public class Comprarlibros extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 315, 145, 34));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondito.png")));
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 380));
+        ImageIcon fondoOriginal = new ImageIcon(getClass().getResource("/imagenes/fondito.png"));
+        Image fondoEscalado = fondoOriginal.getImage().getScaledInstance(560, 420, Image.SCALE_SMOOTH);
+        fondo.setIcon(new ImageIcon(fondoEscalado));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 420));
+
+        getContentPane().setComponentZOrder(fondo, getContentPane().getComponentCount() - 1);
+        getContentPane().setComponentZOrder(panelCompra, getContentPane().getComponentCount() - 2);
 
         pack();
     }
@@ -323,5 +340,6 @@ public class Comprarlibros extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPaneSeleccionados;
     private javax.swing.JTextArea libros;
     private javax.swing.JLabel librosselec;
+    private javax.swing.JPanel panelCompra;
     private javax.swing.JTextArea seleccionados;
 }
