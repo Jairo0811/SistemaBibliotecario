@@ -9,7 +9,7 @@ Este sistema fue desarrollado en **☕ Java Swing** utilizando **🧩 NetBeans**
 - **📘 Materia:** Programación 1 (SOF-003)
 - **👨‍🏫 Profesor:** Keneth Aponte
 - **🏫 Institución:** Instituto Tecnológico de las Américas (ITLA)
-- **🗓️ Versión original:** Diciembre 2016
+- **🗓️ Versión original:** Noviembre 2016
 - **🛠️ Mantenimiento y corrección de funcionalidades:** Junio 2026
 
 ## 👥 Integrantes
