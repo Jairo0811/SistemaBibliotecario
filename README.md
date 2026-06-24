@@ -78,7 +78,7 @@ Contraseña: 1234
 ## 🧰 Tecnologías utilizadas
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=java,netbeans,git,github" alt="Java, NetBeans, Git y GitHub" />
+  <img src="https://skillicons.dev/icons?i=java,netbeans,git,github" alt="Java, Git y GitHub" />
 </p>
 
 * ☕ **Java**
