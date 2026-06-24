@@ -11,7 +11,7 @@ Este sistema fue desarrollado en **Java Swing** utilizando **NetBeans**. Su prop
 * **📘 Materia:** Programación 1 (SOF-003)
 * **👨‍🏫 Profesor:** Keneth John Aponte Alonzo
 * **🏫 Institución:** Instituto Tecnológico de las Américas (ITLA)
-* **🗓️ Versión académica original:** Noviembre 2016
+* **🗓️ Periodo Academico:** 2016-C3
 * **🛠️ Mantenimiento y corrección de funcionalidades:** Junio 2026
 
 ---
