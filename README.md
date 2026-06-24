@@ -1,6 +1,6 @@
 # 📚 Sistema Bibliotecario
 
-Proyecto final desarrollado originalmente entre **noviembre y diciembre de 2016** para la materia **Programación 1 (SOF-003)** en el **Instituto Tecnológico de las Américas (ITLA)**.
+Proyecto final desarrollado originalmente en **noviembre de 2016** para la materia **Programación 1 (SOF-003)** en el **Instituto Tecnológico de las Américas (ITLA)**.
 
 Este sistema fue desarrollado en **Java Swing** utilizando **NetBeans**. Su propósito es simular operaciones básicas de un sistema bibliotecario, incluyendo registro de usuarios, inicio de sesión, préstamo de libros, compra de libros y generación de facturas o recibos.
 
@@ -11,7 +11,7 @@ Este sistema fue desarrollado en **Java Swing** utilizando **NetBeans**. Su prop
 * **📘 Materia:** Programación 1 (SOF-003)
 * **👨‍🏫 Profesor:** Keneth John Aponte Alonzo
 * **🏫 Institución:** Instituto Tecnológico de las Américas (ITLA)
-* **🗓️ Versión académica original:** Noviembre-Diciembre 2016
+* **🗓️ Versión académica original:** Noviembre 2016
 * **🛠️ Mantenimiento y corrección de funcionalidades:** Junio 2026
 
 ---
