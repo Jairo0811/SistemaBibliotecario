@@ -9,13 +9,13 @@ import javax.swing.ImageIcon;
 public class prestamos extends javax.swing.JFrame {
 
     private final String[] librosDisponibles = {
-        "Don Quijote de la Mancha",
-        "Cien años de soledad",
-        "La Odisea",
-        "El Principito",
-        "Programación en Java",
-        "Base de Datos Básica",
-        "Ingeniería de Software"
+            "Don Quijote de la Mancha",
+            "Cien años de soledad",
+            "La Odisea",
+            "El Principito",
+            "Programación en Java",
+            "Base de Datos Básica",
+            "Ingeniería de Software"
     };
 
     public prestamos() {
@@ -53,7 +53,7 @@ public class prestamos extends javax.swing.JFrame {
 
     private String generarDetallePrestamo() {
         return "========================================\n"
-                + "        SISTEMA BIBLIOTECARIO\n"
+                + "SISTEMA BIBLIOTECARIO\n"
                 + "========================================\n\n"
                 + "RECIBO DE PRESTAMO\n\n"
                 + "Fecha de prestamo: " + obtenerFechaActual() + "\n"
@@ -66,12 +66,12 @@ public class prestamos extends javax.swing.JFrame {
                 + "----------------------------------------\n"
                 + "COSTO: RD$0\n"
                 + "----------------------------------------\n\n"
-                + "Nota:\n"
+                + "NOTA:\n"
                 + "Los libros deben ser devueltos en la\n"
                 + "fecha indicada para evitar penalidades.\n\n"
                 + "Proyecto Final\n"
                 + "Programacion 1 (SOF-003)\n"
-                + "ITLA - Diciembre 2016";
+                + "2016";
     }
 
     @SuppressWarnings("unchecked")
@@ -139,7 +139,8 @@ public class prestamos extends javax.swing.JFrame {
         seleccionados.setEditable(false);
         seleccionados.setFont(new java.awt.Font("Monospaced", 0, 13));
         jScrollPaneSeleccionados.setViewportView(seleccionados);
-        getContentPane().add(jScrollPaneSeleccionados, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 330, 125));
+        getContentPane().add(jScrollPaneSeleccionados,
+                new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 330, 125));
 
         jButton3.setFont(new java.awt.Font("Papyrus", 1, 16));
         jButton3.setText("Seleccionar");
@@ -256,8 +257,7 @@ public class prestamos extends javax.swing.JFrame {
         for (final javax.swing.JButton boton : botones) {
             boton.getInputMap(javax.swing.JComponent.WHEN_FOCUSED).put(
                     javax.swing.KeyStroke.getKeyStroke("ENTER"),
-                    "pressEnter"
-            );
+                    "pressEnter");
 
             boton.getActionMap().put("pressEnter", new javax.swing.AbstractAction() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {

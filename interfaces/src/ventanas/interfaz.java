@@ -184,8 +184,7 @@ public class interfaz extends javax.swing.JFrame {
         panelContenido.setBackground(new java.awt.Color(255, 255, 255, 210));
         panelContenido.setBorder(javax.swing.BorderFactory.createCompoundBorder(
                 javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)),
-                javax.swing.BorderFactory.createEmptyBorder(10, 25, 10, 25)
-        ));
+                javax.swing.BorderFactory.createEmptyBorder(10, 25, 10, 25)));
 
         JLabel logo = new JLabel();
         logo.setAlignmentX(JLabel.CENTER_ALIGNMENT);
@@ -203,8 +202,7 @@ public class interfaz extends javax.swing.JFrame {
             Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(
                     anchoDeseado,
                     altoCalculado,
-                    Image.SCALE_SMOOTH
-            );
+                    Image.SCALE_SMOOTH);
 
             logo.setIcon(new ImageIcon(imagenEscalada));
             panelContenido.add(logo);
@@ -229,8 +227,8 @@ public class interfaz extends javax.swing.JFrame {
                         + "</p>"
                         + "<p style='font-size:9px; margin-top:0; margin-bottom:10px;'><b>PROFESOR</b><br>"
                         + "Keneth John Aponte Alonzo</p>"
-                        + "<p style='font-size:9px; margin-top:0; margin-bottom:8px;'><b>VERSIÓN ACADÉMICA ORIGINAL</b><br>"
-                        + "Noviembre 2016</p>"
+                        + "<p style='font-size:9px; margin-top:0; margin-bottom:8px;'><b>PERIODO ACADEMICO</b><br>"
+                        + "2016 - C3</p>"
                         + "<p style='font-size:9px; margin-top:0; margin-bottom:2px;'>"
                         + "<b>MANTENIMIENTO Y CORRECCIÓN<br>DE FUNCIONALIDADES</b><br>"
                         + "Junio 2026</p>"
@@ -254,8 +252,7 @@ public class interfaz extends javax.swing.JFrame {
 
         aceptar.getInputMap(javax.swing.JComponent.WHEN_FOCUSED).put(
                 javax.swing.KeyStroke.getKeyStroke("ENTER"),
-                "pressEnter"
-        );
+                "pressEnter");
 
         aceptar.getActionMap().put("pressEnter", new javax.swing.AbstractAction() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -274,8 +271,7 @@ public class interfaz extends javax.swing.JFrame {
         for (final javax.swing.JButton boton : botones) {
             boton.getInputMap(javax.swing.JComponent.WHEN_FOCUSED).put(
                     javax.swing.KeyStroke.getKeyStroke("ENTER"),
-                    "pressEnter"
-            );
+                    "pressEnter");
 
             boton.getActionMap().put("pressEnter", new javax.swing.AbstractAction() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {

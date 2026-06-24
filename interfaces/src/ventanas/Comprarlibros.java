@@ -9,17 +9,17 @@ import javax.swing.ImageIcon;
 public class Comprarlibros extends javax.swing.JFrame {
 
     private final String[] nombresLibros = {
-        "Don Quijote de la Mancha",
-        "Cien años de soledad",
-        "La Odisea",
-        "El Principito",
-        "Programación en Java",
-        "Base de Datos Básica",
-        "Ingeniería de Software"
+            "Don Quijote de la Mancha",
+            "Cien años de soledad",
+            "La Odisea",
+            "El Principito",
+            "Programación en Java",
+            "Base de Datos Básica",
+            "Ingeniería de Software"
     };
 
     private final int[] precios = {
-        500, 650, 450, 350, 900, 800, 1000
+            500, 650, 450, 350, 900, 800, 1000
     };
 
     private int total = 0;
@@ -60,7 +60,7 @@ public class Comprarlibros extends javax.swing.JFrame {
 
     private String generarDetalleFactura() {
         return "========================================\n"
-                + "        SISTEMA BIBLIOTECARIO\n"
+                + "SISTEMA BIBLIOTECARIO\n"
                 + "========================================\n\n"
                 + "FACTURA DE COMPRA\n\n"
                 + "Fecha: " + obtenerFechaActual() + "\n"
@@ -76,7 +76,7 @@ public class Comprarlibros extends javax.swing.JFrame {
                 + "Sistema Bibliotecario.\n\n"
                 + "Proyecto Final\n"
                 + "Programación 1 (SOF-003)\n"
-                + "ITLA - Diciembre 2016";
+                + "2016";
     }
 
     @SuppressWarnings("unchecked")
@@ -135,7 +135,8 @@ public class Comprarlibros extends javax.swing.JFrame {
         seleccionados.setEditable(false);
         seleccionados.setFont(new java.awt.Font("Monospaced", 0, 13));
         jScrollPaneSeleccionados.setViewportView(seleccionados);
-        getContentPane().add(jScrollPaneSeleccionados, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 330, 125));
+        getContentPane().add(jScrollPaneSeleccionados,
+                new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 330, 125));
 
         jButton1.setFont(new java.awt.Font("Papyrus", 1, 16));
         jButton1.setText("Seleccionar");
@@ -309,8 +310,7 @@ public class Comprarlibros extends javax.swing.JFrame {
         for (final javax.swing.JButton boton : botones) {
             boton.getInputMap(javax.swing.JComponent.WHEN_FOCUSED).put(
                     javax.swing.KeyStroke.getKeyStroke("ENTER"),
-                    "pressEnter"
-            );
+                    "pressEnter");
 
             boton.getActionMap().put("pressEnter", new javax.swing.AbstractAction() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {

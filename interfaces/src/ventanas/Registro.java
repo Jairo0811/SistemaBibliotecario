@@ -201,8 +201,7 @@ public class Registro extends javax.swing.JFrame {
         for (final javax.swing.JButton boton : botones) {
             boton.getInputMap(javax.swing.JComponent.WHEN_FOCUSED).put(
                     javax.swing.KeyStroke.getKeyStroke("ENTER"),
-                    "pressEnter"
-            );
+                    "pressEnter");
 
             boton.getActionMap().put("pressEnter", new javax.swing.AbstractAction() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {

@@ -64,7 +64,7 @@ public class facturas extends javax.swing.JFrame {
                 + "Sistema Bibliotecario.\n\n"
                 + "Proyecto Final\n"
                 + "Programación 1 (SOF-003)\n"
-                + "ITLA - Diciembre 2016";
+                + "2016";
     }
 
     private void cargarFacturaConLogo() {
@@ -94,8 +94,7 @@ public class facturas extends javax.swing.JFrame {
                 Image logoEscalado = logoOriginal.getImage().getScaledInstance(
                         anchoDeseado,
                         altoCalculado,
-                        Image.SCALE_SMOOTH
-                );
+                        Image.SCALE_SMOOTH);
 
                 Style estiloLogo = factura.addStyle("logo", null);
                 StyleConstants.setIcon(estiloLogo, new ImageIcon(logoEscalado));
@@ -191,8 +190,7 @@ public class facturas extends javax.swing.JFrame {
         for (final javax.swing.JButton boton : botones) {
             boton.getInputMap(javax.swing.JComponent.WHEN_FOCUSED).put(
                     javax.swing.KeyStroke.getKeyStroke("ENTER"),
-                    "pressEnter"
-            );
+                    "pressEnter");
 
             boton.getActionMap().put("pressEnter", new javax.swing.AbstractAction() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
