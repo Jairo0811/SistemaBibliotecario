@@ -1,7 +1,7 @@
 # 📚 Sistema Bibliotecario
 
 <p align="center">
-  <img src="imagenes/logo_sistemabibliotecario.png" width="220" alt="Sistema Bibliotecario Logo">
+  <img src="imagenes/logo.png" width="220" alt="Sistema Bibliotecario Logo">
 </p>
 
 <p align="center">
