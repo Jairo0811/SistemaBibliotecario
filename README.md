@@ -1,21 +1,23 @@
 # 📚 Sistema Bibliotecario
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=java,git,github" alt="Tecnologías utilizadas" />
+  <img src="imagenes/logo_sistemabibliotecario.png" width="220" alt="Sistema Bibliotecario Logo">
 </p>
 
 <p align="center">
-
-![Java](https://img.shields.io/badge/Java-Swing-orange?logo=openjdk)
-![NetBeans](https://img.shields.io/badge/NetBeans-IDE-1B6AC6?logo=apachenetbeanside)
-![Apache Ant](https://img.shields.io/badge/Build-Ant-A81C7D?logo=apacheant)
-![Status](https://img.shields.io/badge/Status-Restaurado-success)
-![Year](https://img.shields.io/badge/Original-2016-blue)
-![Maintenance](https://img.shields.io/badge/Mantenimiento-2026-brightgreen)
-
+  <img src="https://skillicons.dev/icons?i=java,git,github" />
 </p>
 
----
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-Swing-orange?style=for-the-badge&logo=openjdk&logoColor=white"/>
+  <img src="https://img.shields.io/badge/NetBeans-IDE-1B6AC6?style=for-the-badge&logo=apachenetbeanside&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Apache-Ant-A81C7D?style=for-the-badge&logo=apacheant&logoColor=white"/>
+</p>
+
+<p align="center">
+<strong>Java · Swing · NetBeans · Apache Ant</strong>
+</p>
+
 
 ## 📖 Descripción
 
