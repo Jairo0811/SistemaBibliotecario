@@ -4,61 +4,68 @@
   <img src="https://skillicons.dev/icons?i=java,git,github" alt="Tecnologías utilizadas" />
 </p>
 
+<p align="center">
+
+![Java](https://img.shields.io/badge/Java-Swing-orange?logo=openjdk)
+![NetBeans](https://img.shields.io/badge/NetBeans-IDE-1B6AC6?logo=apachenetbeanside)
+![Apache Ant](https://img.shields.io/badge/Build-Ant-A81C7D?logo=apacheant)
+![Status](https://img.shields.io/badge/Status-Restaurado-success)
+![Year](https://img.shields.io/badge/Original-2016-blue)
+![Maintenance](https://img.shields.io/badge/Mantenimiento-2026-brightgreen)
+
+</p>
+
+---
+
+## 📖 Descripción
+
 Proyecto final desarrollado originalmente en **noviembre de 2016** para la materia **Programación 1 (SOF-003)** en el **Instituto Tecnológico de las Américas (ITLA)**.
 
-Este repositorio corresponde a la **restauración, mantenimiento, documentación y corrección de funcionalidades** del proyecto, realizada en **junio de 2026**, preservando la esencia y el diseño del sistema original.
+La aplicación fue construida utilizando **Java Swing** sobre **NetBeans** y simula las operaciones básicas de una biblioteca, permitiendo registrar usuarios, iniciar sesión, prestar libros, comprar libros y generar comprobantes.
+
+En **junio de 2026** el proyecto fue restaurado, corregido y actualizado para preservar su funcionamiento en versiones modernas de Java, manteniendo su esencia académica original.
 
 ---
 
-# 👤 Autor de la Restauración
-
-**Francis Jairo Matías Rosario**
-
----
-
-## 📌 Información del Proyecto
+# 📌 Información del proyecto
 
 - 📘 **Materia:** Programación 1 (SOF-003)
 - 👨‍🏫 **Profesor:** Keneth John Aponte Alonzo
 - 🏫 **Institución:** Instituto Tecnológico de las Américas (ITLA)
-- 🗓️ **Periodo Académico:** 2016-C3
-- 🛠️ **Restauración del proyecto:** Junio 2026
+- 📅 **Período Académico:** 2016-C3
+- 🛠️ **Restauración y mantenimiento:** Junio 2026
 
 ---
 
-## 📜 Créditos
+# 👥 Integrantes
 
-El desarrollo original del proyecto fue realizado en 2016 como trabajo final de la asignatura **Programación 1 (SOF-003)** por el siguiente equipo:
-
-- 👤 **Reydi Isaac Charles Frias** — 2015-2965
-- 👤 **Francis Jairo Matías Rosario** — 2015-2984
-- 👤 **Eduandy Isabel Cruz Abreu** — 2015-3017
-- 👤 **Orlando Antonio Dominici Vanterpool** — 2015-3029
-- 👤 **Freddy Nicolas Mejia Peña** — 2015-3038
-
-La restauración, mantenimiento, documentación, mejoras visuales y publicación de este repositorio fueron realizados por **Francis Jairo Matías Rosario** en **junio de 2026**.
+| Integrante | Matrícula |
+|------------|-----------|
+| 👤 Reydi Isaac Charles Frias | **2015-2965** |
+| 👤 Francis Jairo Matías Rosario | **2015-2984** |
+| 👤 Eduandy Isabel Cruz Abreu | **2015-3017** |
+| 👤 Orlando Antonio Dominici Vanterpool | **2015-3029** |
+| 👤 Freddy Nicolas Mejia Peña | **2015-3038** |
 
 ---
 
-## 🚀 Funcionalidades Principales
+# ✨ Funcionalidades
 
-- 🔐 Inicio de sesión con validación de usuario.
-- 📝 Registro de usuarios.
-- 🧭 Menú principal con opciones de préstamo y compra.
+- 🔐 Inicio de sesión.
+- 👤 Registro de usuarios.
+- 📚 Consulta del catálogo de libros.
 - 📖 Préstamo de libros.
 - 🛒 Compra de libros.
-- 📚 Selección individual y múltiple de libros.
-- 🧮 Cálculo automático del total de compra.
+- 📑 Generación de recibos de préstamo.
 - 🧾 Generación de facturas de compra.
-- 📄 Generación de recibos de préstamo.
-- 🏫 Integración del logo del ITLA en facturas y recibos.
+- 🏫 Integración del logo institucional del ITLA.
 - ⌨️ Navegación mediante la tecla **ENTER**.
-- 🚪 Cerrar sesión.
-- 🎨 Interfaz restaurada conservando el estilo visual original del proyecto.
+- 🚪 Cierre de sesión.
+- 🎨 Restauración de la interfaz gráfica original.
 
 ---
 
-## 🔐 Usuario de prueba
+# 🔐 Usuario de prueba
 
 ```text
 Usuario: admin
@@ -67,61 +74,66 @@ Contraseña: 1234
 
 ---
 
-## 🛠️ Mejoras realizadas en 2026
+# 🛠️ Restauración realizada en 2026
 
-- ✅ Restauración completa del proyecto original.
-- 🔁 Corrección del flujo de navegación entre ventanas.
-- 🔐 Implementación de validación de inicio de sesión.
-- 🚪 Incorporación de la opción **Cerrar sesión**.
-- 🎨 Rediseño ligero de la interfaz manteniendo el aspecto original.
-- 🖼️ Fondo de libros escalado correctamente en todas las ventanas.
-- 🧊 Paneles semitransparentes para mejorar la legibilidad.
-- 📄 Modernización de la ventana **Acerca de**.
-- 🏫 Integración del logo del ITLA en facturas y recibos.
-- 🖨️ Mejora de la presentación de facturas y recibos.
-- ⌨️ Compatibilidad de todos los botones con la tecla **ENTER**.
-- ☕ Compatibilidad con versiones modernas de Java.
-- 🧹 Limpieza del proyecto y configuración de `.gitignore`.
-- 📚 Documentación completa mediante este README.
+Durante el mantenimiento del proyecto se realizaron las siguientes mejoras:
+
+- ✅ Corrección del flujo de navegación entre ventanas.
+- ✅ Implementación de validación del inicio de sesión.
+- ✅ Corrección de botones sin funcionalidad.
+- ✅ Incorporación del botón **Cerrar sesión**.
+- ✅ Restauración completa de la ventana **Acerca de**.
+- ✅ Restauración de fondos originales.
+- ✅ Paneles semitransparentes para mejorar la legibilidad.
+- ✅ Integración del logo del ITLA en facturas y recibos.
+- ✅ Facturas dinámicas.
+- ✅ Recibos dinámicos.
+- ✅ Compatibilidad con versiones actuales de Java.
+- ✅ Limpieza general del proyecto.
+- ✅ Actualización de documentación.
+- ✅ Configuración de `.gitignore`.
+- ✅ Publicación del proyecto en GitHub.
 
 ---
 
-## 🧰 Tecnologías utilizadas
+# 🧰 Tecnologías utilizadas
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=java,git,github" alt="Tecnologías utilizadas"/>
+<img src="https://skillicons.dev/icons?i=java,git,github" />
 </p>
 
 - ☕ Java
 - 🖥️ Java Swing
-- 🧩 NetBeans
+- 🧩 Apache NetBeans IDE
 - 🐜 Apache Ant
 - 🌿 Git
 - 🐙 GitHub
 
 ---
 
-## ▶️ Ejecución del proyecto
+# ▶️ Ejecución
 
-Ejecutar desde NetBeans:
+Abrir el proyecto desde **Apache NetBeans** y ejecutar:
 
 ```text
 Clean and Build
 Run Project
 ```
 
-También puede ejecutarse el archivo **.jar** generado dentro de la carpeta **dist**.
+También puede ejecutarse el archivo `.jar` generado dentro de la carpeta `dist` una vez compilado.
 
 ---
 
-## 📂 Estructura del proyecto
+# 📂 Estructura del proyecto
 
 ```text
 src/
 ├── imagenes/
 │   ├── fondito.png
 │   ├── itla.png
-│   └── userrrrrr.png
+│   ├── userrrrrr.png
+│   └── ...
+│
 └── ventanas/
     ├── interfaz.java
     ├── Registro.java
@@ -133,17 +145,20 @@ src/
 
 ---
 
-## 📈 Evolución del proyecto
+# 📜 Licencia
 
-| Año | Descripción |
-|------|-------------|
-| **2016** | Desarrollo original del proyecto académico en el ITLA. |
-| **2026** | Restauración completa, corrección de funcionalidades, mejoras visuales, documentación y publicación en GitHub. |
+Este proyecto fue desarrollado originalmente con fines **académicos** para el ITLA.
+
+La restauración realizada en **2026** tiene como finalidad preservar el proyecto como parte del portafolio personal del autor, respetando la autoría y el contexto académico del trabajo original.
 
 ---
 
-## 📝 Nota
+# 🙌 Agradecimientos
 
-Este repositorio tiene como propósito **preservar y modernizar** uno de mis primeros proyectos académicos, desarrollado durante mi formación en el **Instituto Tecnológico de las Américas (ITLA)**.
+- 🏫 Instituto Tecnológico de las Américas (ITLA)
+- 👨‍🏫 Prof. Keneth John Aponte Alonzo
+- 👥 Equipo de desarrollo original (2016)
 
-Aunque el desarrollo original fue realizado en equipo, la restauración, mantenimiento, documentación y publicación de este repositorio corresponden al trabajo realizado por **Francis Jairo Matías Rosario** en **2026**.
+---
+
+> **Proyecto original (2016) restaurado y mantenido en 2026 para conservar su funcionamiento, documentación y valor histórico como parte de un portafolio de desarrollo de software.**
