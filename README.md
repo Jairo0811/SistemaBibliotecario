@@ -1,24 +1,21 @@
 # 📚 Sistema Bibliotecario
 
 <p align="center">
-<img src="docs/logo.png" width="220" alt="Sistema Bibliotecario Logo">
+  <img src="docs/logo.png" width="220" alt="Sistema Bibliotecario Logo">
 </p>
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=java,git,github" />
+  <img src="https://img.shields.io/badge/ITLA-2016--C3-0057B8?style=for-the-badge" alt="ITLA 2016-C3" />
+  <img src="https://img.shields.io/badge/Java-Swing-orange?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java Swing" />
+  <img src="https://img.shields.io/badge/NetBeans-IDE-1B6AC6?style=for-the-badge&logo=apachenetbeanside&logoColor=white" alt="NetBeans" />
+  <img src="https://img.shields.io/badge/Apache-Ant-A81C7D?style=for-the-badge&logo=apacheant&logoColor=white" alt="Apache Ant" />
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/ITLA-2016--C3-0057B8?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Java-Swing-orange?style=for-the-badge&logo=openjdk&logoColor=white"/>
-  <img src="https://img.shields.io/badge/NetBeans-IDE-1B6AC6?style=for-the-badge&logo=apachenetbeanside&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Apache-Ant-A81C7D?style=for-the-badge&logo=apacheant&logoColor=white"/>
+  <strong>Java · Swing · NetBeans · Apache Ant</strong>
 </p>
 
-<p align="center">
-<strong>Java · Swing · NetBeans · Apache Ant</strong>
-</p>
-
+---
 
 ## 📖 Descripción
 
@@ -30,17 +27,17 @@ En **junio de 2026** el proyecto fue restaurado, corregido y actualizado para pr
 
 ---
 
-# 📌 Información del proyecto
+## 📌 Información del proyecto
 
 - 📘 **Materia:** Programación 1 (SOF-003)
 - 👨‍🏫 **Profesor:** Keneth John Aponte Alonzo
 - 🏫 **Institución:** Instituto Tecnológico de las Américas (ITLA)
-- 📅 **Período Académico:** 2016-C3
+- 📅 **Período académico:** 2016-C3
 - 🛠️ **Restauración y mantenimiento:** Junio 2026
 
 ---
 
-# 👥 Integrantes
+## 👥 Integrantes del proyecto original
 
 | Integrante | Matrícula |
 |------------|-----------|
@@ -52,7 +49,30 @@ En **junio de 2026** el proyecto fue restaurado, corregido y actualizado para pr
 
 ---
 
-# ✨ Funcionalidades
+## 📖 Historia del proyecto
+
+El sistema nació como un proyecto académico desarrollado en **Java Swing** durante el período **2016-C3**. Su propósito era practicar conceptos fundamentales de programación orientada a objetos, eventos, formularios y navegación entre ventanas.
+
+Diez años después, el proyecto fue recuperado y sometido a un proceso de mantenimiento para corregir desperfectos, restaurar funcionalidades incompletas y mejorar la presentación visual sin convertirlo en una aplicación diferente.
+
+La versión actual conserva la identidad del proyecto original, incluyendo su estética basada en libros, su tipografía característica y su estructura de ventanas.
+
+---
+
+## 🎯 Objetivo
+
+Preservar uno de los primeros proyectos académicos del autor y demostrar su evolución mediante:
+
+- 🔁 Corrección de flujos de navegación.
+- 🔐 Validación básica de acceso.
+- 🧾 Generación dinámica de facturas y recibos.
+- 🎨 Mejora visual manteniendo el concepto original.
+- 🧹 Limpieza y organización del repositorio.
+- 📚 Documentación profesional para GitHub.
+
+---
+
+## ✨ Funcionalidades
 
 - 🔐 Inicio de sesión.
 - 👤 Registro de usuarios.
@@ -68,7 +88,7 @@ En **junio de 2026** el proyecto fue restaurado, corregido y actualizado para pr
 
 ---
 
-# 🔐 Usuario de prueba
+## 🔐 Usuario de prueba
 
 ```text
 Usuario: admin
@@ -77,7 +97,7 @@ Contraseña: 1234
 
 ---
 
-# 🛠️ Restauración realizada en 2026
+## 🛠️ Restauración realizada en 2026
 
 Durante el mantenimiento del proyecto se realizaron las siguientes mejoras:
 
@@ -99,9 +119,9 @@ Durante el mantenimiento del proyecto se realizaron las siguientes mejoras:
 
 ---
 
-# 🧰 Stack tecnológico
+## 🧰 Stack tecnológico
 
-## 🖥️ Interfaz de escritorio
+### 🖥️ Interfaz de escritorio
 
 <p>
   <img src="https://img.shields.io/badge/Java%20Swing-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java Swing" />
@@ -110,7 +130,7 @@ Durante el mantenimiento del proyecto se realizaron las siguientes mejoras:
 - Java Swing para la construcción de ventanas, formularios y componentes gráficos.
 - Interfaz orientada a eventos para los procesos de autenticación, préstamos, compras y comprobantes.
 
-## ⚙️ Lógica de aplicación
+### ⚙️ Lógica de aplicación
 
 <p>
   <img src="https://skillicons.dev/icons?i=java" alt="Java" />
@@ -120,7 +140,7 @@ Durante el mantenimiento del proyecto se realizaron las siguientes mejoras:
 - Programación orientada a objetos.
 - Manejo de navegación, validaciones y lógica funcional de la aplicación.
 
-## 🧰 Herramientas de desarrollo
+### 🧰 Herramientas de desarrollo
 
 <p>
   <img src="https://skillicons.dev/icons?i=git,github" alt="Git y GitHub" />
@@ -137,7 +157,7 @@ Durante el mantenimiento del proyecto se realizaron las siguientes mejoras:
 
 ---
 
-# ▶️ Ejecución
+## ▶️ Ejecución
 
 Abrir el proyecto desde **Apache NetBeans** y ejecutar:
 
@@ -150,28 +170,84 @@ También puede ejecutarse el archivo `.jar` generado dentro de la carpeta `dist`
 
 ---
 
-# 📂 Estructura del proyecto
+## 📂 Estructura del proyecto
 
 ```text
-src/
-├── imagenes/
-│   ├── fondito.png
-│   ├── itla.png
-│   ├── userrrrrr.png
-│   └── ...
-│
-└── ventanas/
-    ├── interfaz.java
-    ├── Registro.java
-    ├── Decision.java
-    ├── Comprarlibros.java
-    ├── prestamos.java
-    └── facturas.java
+SistemaBibliotecario/
+├── docs/
+│   └── logo.png
+├── interfaces/
+│   ├── src/
+│   │   ├── imagenes/
+│   │   │   ├── fondito.png
+│   │   │   ├── itla.png
+│   │   │   └── userrrrrr.png
+│   │   └── ventanas/
+│   │       ├── interfaz.java
+│   │       ├── Registro.java
+│   │       ├── Decision.java
+│   │       ├── Comprarlibros.java
+│   │       ├── prestamos.java
+│   │       └── facturas.java
+│   ├── build.xml
+│   └── nbproject/
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-# 📜 Licencia
+## 📈 Evolución del proyecto
+
+| Característica | Versión original (2016) | Restauración (2026) |
+|:--------------|:-----------------------:|:-------------------:|
+| Java Swing | ✅ | ✅ |
+| Inicio de sesión | ⚠️ Básico | ✅ Validado |
+| Registro de usuarios | ✅ | ✅ |
+| Compra de libros | ⚠️ Incompleta | ✅ Funcional |
+| Préstamo de libros | ⚠️ Incompleto | ✅ Funcional |
+| Facturas y recibos | ⚠️ Estáticos | ✅ Dinámicos |
+| Logo del ITLA | ❌ | ✅ |
+| Cierre de sesión | ❌ | ✅ |
+| Navegación con ENTER | ❌ | ✅ |
+| Documentación profesional | ❌ | ✅ |
+
+---
+
+## 🚦 Estado del proyecto
+
+- [x] Restauración del código original.
+- [x] Corrección de navegación.
+- [x] Validación de inicio de sesión.
+- [x] Compra de libros.
+- [x] Préstamo de libros.
+- [x] Facturas dinámicas.
+- [x] Recibos dinámicos.
+- [x] Ventana Acerca de.
+- [x] Identidad visual del proyecto.
+- [x] README profesional.
+- [x] Publicación en GitHub.
+
+---
+
+## 📅 Línea de tiempo
+
+| Fecha | Evento |
+|-------|--------|
+| 🎓 **2016-C3** | Desarrollo del proyecto académico original. |
+| 🛠️ **Junio 2026** | Restauración, mantenimiento, mejoras visuales y documentación. |
+
+---
+
+## 👨‍💻 Autor de la restauración
+
+**Francis Jairo Matías Rosario**
+
+Restauración del código legado, corrección de funcionalidades, actualización visual, documentación y preparación del repositorio para portafolio profesional.
+
+---
+
+## 📜 Licencia
 
 Este proyecto fue desarrollado originalmente con fines **académicos** para el ITLA.
 
@@ -179,7 +255,7 @@ La restauración realizada en **2026** tiene como finalidad preservar el proyect
 
 ---
 
-# 🙌 Agradecimientos
+## 🙌 Agradecimientos
 
 - 🏫 Instituto Tecnológico de las Américas (ITLA)
 - 👨‍🏫 Prof. Keneth John Aponte Alonzo
@@ -187,4 +263,6 @@ La restauración realizada en **2026** tiene como finalidad preservar el proyect
 
 ---
 
-> **Proyecto original (2016) restaurado y mantenido en 2026 para conservar su funcionamiento, documentación y valor histórico como parte de un portafolio de desarrollo de software.**
+<p align="center">
+  <strong>📚 De un proyecto académico desarrollado durante el período 2016-C3 a una aplicación restaurada, funcional y documentada profesionalmente en 2026.</strong>
+</p>
