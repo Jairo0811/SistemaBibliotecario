@@ -99,18 +99,41 @@ Durante el mantenimiento del proyecto se realizaron las siguientes mejoras:
 
 ---
 
-# 🧰 Tecnologías utilizadas
+# 🧰 Stack tecnológico
 
-<p align="center">
-<img src="https://skillicons.dev/icons?i=java,git,github" />
+## 🖥️ Interfaz de escritorio
+
+<p>
+  <img src="https://img.shields.io/badge/Java%20Swing-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java Swing" />
 </p>
 
-- ☕ Java
-- 🖥️ Java Swing
-- 🧩 Apache NetBeans IDE
-- 🐜 Apache Ant
-- 🌿 Git
-- 🐙 GitHub
+- Java Swing para la construcción de ventanas, formularios y componentes gráficos.
+- Interfaz orientada a eventos para los procesos de autenticación, préstamos, compras y comprobantes.
+
+## ⚙️ Lógica de aplicación
+
+<p>
+  <img src="https://skillicons.dev/icons?i=java" alt="Java" />
+</p>
+
+- Java como lenguaje principal.
+- Programación orientada a objetos.
+- Manejo de navegación, validaciones y lógica funcional de la aplicación.
+
+## 🧰 Herramientas de desarrollo
+
+<p>
+  <img src="https://skillicons.dev/icons?i=git,github" alt="Git y GitHub" />
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Apache%20NetBeans-IDE-1B6AC6?style=flat-square&logo=apachenetbeanside&logoColor=white" alt="Apache NetBeans" />
+  <img src="https://img.shields.io/badge/Apache%20Ant-Build-A81C7D?style=flat-square&logo=apacheant&logoColor=white" alt="Apache Ant" />
+</p>
+
+- Apache NetBeans como entorno de desarrollo.
+- Apache Ant para la compilación y generación del archivo ejecutable `.jar`.
+- Git y GitHub para control de versiones y publicación del proyecto.
 
 ---
 
