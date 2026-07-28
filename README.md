@@ -3,9 +3,11 @@
 <p align="center">
   <img src="docs/logo.png" width="220" alt="Sistema Bibliotecario Logo">
 </p>
-
 <p align="center">
   <img src="https://img.shields.io/badge/ITLA-2016--C3-0057B8?style=for-the-badge" alt="ITLA 2016-C3" />
+</p>
+<p align="center">
+
   <img src="https://img.shields.io/badge/Java-Swing-orange?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java Swing" />
   <img src="https://img.shields.io/badge/NetBeans-IDE-1B6AC6?style=for-the-badge&logo=apachenetbeanside&logoColor=white" alt="NetBeans" />
   <img src="https://img.shields.io/badge/Apache-Ant-A81C7D?style=for-the-badge&logo=apacheant&logoColor=white" alt="Apache Ant" />
