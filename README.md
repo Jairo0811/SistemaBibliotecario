@@ -1,7 +1,7 @@
 # 📚 Sistema Bibliotecario
 
 <p align="center">
-  <img src="docs/logo.png" width="220" alt="Sistema Bibliotecario Logo">
+  <img src="docs/logo.jpeg" width="220" alt="Sistema Bibliotecario Logo">
 </p>
 <p align="center">
   <img src="https://img.shields.io/badge/ITLA-2016--C3-0057B8?style=for-the-badge" alt="ITLA 2016-C3" />
