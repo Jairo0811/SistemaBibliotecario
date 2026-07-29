@@ -4,7 +4,7 @@
   <img
     src="docs/logo.jpeg"
     alt="Logo de Sistema Bibliotecario"
-    width="520"
+    width="420"
   />
 </p>
 
