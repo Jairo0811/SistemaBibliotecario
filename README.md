@@ -1,41 +1,40 @@
-
-
 <p align="center">
   <img src="docs/logo.jpeg" width="420" alt="Sistema Bibliotecario Logo">
 </p>
+
 <p align="center">
   <img src="https://img.shields.io/badge/ITLA-2016--C3-0057B8?style=for-the-badge" alt="ITLA 2016-C3" />
-</p>
-<p align="center">
-
-  <img src="https://img.shields.io/badge/Java-Swing-orange?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java Swing" />
-  <img src="https://img.shields.io/badge/NetBeans-IDE-1B6AC6?style=for-the-badge&logo=apachenetbeanside&logoColor=white" alt="NetBeans" />
-  <img src="https://img.shields.io/badge/Apache-Ant-A81C7D?style=for-the-badge&logo=apacheant&logoColor=white" alt="Apache Ant" />
+  <img src="https://img.shields.io/badge/Java-Swing-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java Swing" />
+  <img src="https://img.shields.io/badge/Apache%20NetBeans-IDE-1B6AC6?style=for-the-badge&logo=apachenetbeanside&logoColor=white" alt="Apache NetBeans" />
+  <img src="https://img.shields.io/badge/Apache%20Ant-Build-A81C7D?style=for-the-badge&logo=apacheant&logoColor=white" alt="Apache Ant" />
 </p>
 
 <p align="center">
-  <strong>Java · Swing · NetBeans · Apache Ant</strong>
+  <strong>Java · Swing · Apache NetBeans · Apache Ant</strong>
 </p>
 
 ---
 
 ## 📖 Descripción
 
-Proyecto final desarrollado originalmente en **noviembre de 2016** para la materia **Programación 1 (SOF-003)** en el **Instituto Tecnológico de las Américas (ITLA)**.
+**Sistema Bibliotecario** es el proyecto final desarrollado originalmente en **noviembre de 2016** para la asignatura **Programación 1 (SOF-003)** del **Instituto Tecnológico de las Américas (ITLA)**.
 
-La aplicación fue construida utilizando **Java Swing** sobre **NetBeans** y simula las operaciones básicas de una biblioteca, permitiendo registrar usuarios, iniciar sesión, prestar libros, comprar libros y generar comprobantes.
+La aplicación fue construida con **Java Swing** en **Apache NetBeans** y simula operaciones básicas de una biblioteca: registro de usuarios, inicio de sesión, préstamo y compra de libros, generación de facturas y emisión de recibos.
 
-En **junio de 2026** el proyecto fue restaurado, corregido y actualizado para preservar su funcionamiento en versiones modernas de Java, manteniendo su esencia académica original.
+En **junio de 2026** el proyecto fue restaurado, corregido y documentado para preservar su funcionamiento en versiones modernas de Java, manteniendo su identidad académica y visual original.
 
 ---
 
 ## 📌 Información del proyecto
 
-- 📘 **Materia:** Programación 1 (SOF-003)
-- 👨‍🏫 **Profesor:** Keneth John Aponte Alonzo
-- 🏫 **Institución:** Instituto Tecnológico de las Américas (ITLA)
-- 📅 **Período académico:** 2016-C3
-- 🛠️ **Restauración y mantenimiento:** Junio 2026
+| Dato | Información |
+|------|-------------|
+| 📘 Materia | Programación 1 |
+| 🧾 Código | SOF-003 |
+| 👨‍🏫 Profesor | Keneth John Aponte Alonzo |
+| 🏫 Institución | Instituto Tecnológico de las Américas (ITLA) |
+| 📅 Período académico | 2016-C3 |
+| 🛠️ Restauración y mantenimiento | Junio 2026 |
 
 ---
 
@@ -43,27 +42,27 @@ En **junio de 2026** el proyecto fue restaurado, corregido y actualizado para pr
 
 | Integrante | Matrícula |
 |------------|-----------|
-| 👤 Reydi Isaac Charles Frias | **2015-2965** |
-| 👤 Francis Jairo Matías Rosario | **2015-2984** |
-| 👤 Eduandy Isabel Cruz Abreu | **2015-3017** |
-| 👤 Orlando Antonio Dominici Vanterpool | **2015-3029** |
-| 👤 Freddy Nicolas Mejia Peña | **2015-3038** |
+| Reydi Isaac Charles Frias | **2015-2965** |
+| Francis Jairo Matías Rosario | **2015-2984** |
+| Eduandy Isabel Cruz Abreu | **2015-3017** |
+| Orlando Antonio Dominici Vanterpool | **2015-3029** |
+| Freddy Nicolas Mejia Peña | **2015-3038** |
 
 ---
 
 ## 📖 Historia del proyecto
 
-El sistema nació como un proyecto académico desarrollado en **Java Swing** durante el período **2016-C3**. Su propósito era practicar conceptos fundamentales de programación orientada a objetos, eventos, formularios y navegación entre ventanas.
+El sistema nació como un proyecto académico desarrollado con **Java Swing** durante el período **2016-C3**. Su objetivo era aplicar conceptos fundamentales de programación orientada a objetos, formularios, manejo de eventos y navegación entre ventanas.
 
-Diez años después, el proyecto fue recuperado y sometido a un proceso de mantenimiento para corregir desperfectos, restaurar funcionalidades incompletas y mejorar la presentación visual sin convertirlo en una aplicación diferente.
+Diez años después, el proyecto fue recuperado para corregir desperfectos, completar funcionalidades y mejorar su presentación sin transformarlo en una aplicación diferente.
 
-La versión actual conserva la identidad del proyecto original, incluyendo su estética basada en libros, su tipografía característica y su estructura de ventanas.
+La versión actual conserva elementos representativos del proyecto original, como el fondo de libros, la tipografía de las interfaces y la estructura general de navegación.
 
 ---
 
-## 🎯 Objetivo
+## 🎯 Objetivo de la restauración
 
-Preservar uno de los primeros proyectos académicos del autor y demostrar su evolución mediante:
+Preservar uno de los primeros proyectos académicos del autor y documentar su evolución mediante:
 
 - 🔁 Corrección de flujos de navegación.
 - 🔐 Validación básica de acceso.
@@ -76,7 +75,7 @@ Preservar uno de los primeros proyectos académicos del autor y demostrar su evo
 
 ## ✨ Funcionalidades
 
-- 🔐 Inicio de sesión.
+- 🔐 Inicio de sesión con validación.
 - 👤 Registro de usuarios.
 - 📚 Consulta del catálogo de libros.
 - 📖 Préstamo de libros.
@@ -101,23 +100,22 @@ Contraseña: 1234
 
 ## 🛠️ Restauración realizada en 2026
 
-Durante el mantenimiento del proyecto se realizaron las siguientes mejoras:
+Durante el mantenimiento se realizaron las siguientes mejoras:
 
 - ✅ Corrección del flujo de navegación entre ventanas.
 - ✅ Implementación de validación del inicio de sesión.
 - ✅ Corrección de botones sin funcionalidad.
 - ✅ Incorporación del botón **Cerrar sesión**.
-- ✅ Restauración completa de la ventana **Acerca de**.
+- ✅ Restauración de la ventana **Acerca de**.
 - ✅ Restauración de fondos originales.
 - ✅ Paneles semitransparentes para mejorar la legibilidad.
 - ✅ Integración del logo del ITLA en facturas y recibos.
 - ✅ Facturas dinámicas.
 - ✅ Recibos dinámicos.
-- ✅ Compatibilidad con versiones actuales de Java.
+- ✅ Compatibilidad con versiones modernas de Java.
 - ✅ Limpieza general del proyecto.
-- ✅ Actualización de documentación.
 - ✅ Configuración de `.gitignore`.
-- ✅ Publicación del proyecto en GitHub.
+- ✅ Actualización completa de la documentación.
 
 ---
 
@@ -129,8 +127,8 @@ Durante el mantenimiento del proyecto se realizaron las siguientes mejoras:
   <img src="https://img.shields.io/badge/Java%20Swing-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java Swing" />
 </p>
 
-- Java Swing para la construcción de ventanas, formularios y componentes gráficos.
-- Interfaz orientada a eventos para los procesos de autenticación, préstamos, compras y comprobantes.
+- **Java Swing** para ventanas, formularios y componentes gráficos.
+- Programación orientada a eventos para autenticación, préstamos, compras y comprobantes.
 
 ### ⚙️ Lógica de aplicación
 
@@ -138,37 +136,41 @@ Durante el mantenimiento del proyecto se realizaron las siguientes mejoras:
   <img src="https://skillicons.dev/icons?i=java" alt="Java" />
 </p>
 
-- Java como lenguaje principal.
+- **Java** como lenguaje principal.
 - Programación orientada a objetos.
-- Manejo de navegación, validaciones y lógica funcional de la aplicación.
+- Validaciones, navegación y lógica funcional del sistema.
 
-### 🧰 Herramientas de desarrollo
-
-<p>
-  <img src="https://skillicons.dev/icons?i=git,github" alt="Git y GitHub" />
-</p>
+### 🧩 Entorno de desarrollo y compilación
 
 <p>
   <img src="https://img.shields.io/badge/Apache%20NetBeans-IDE-1B6AC6?style=flat-square&logo=apachenetbeanside&logoColor=white" alt="Apache NetBeans" />
   <img src="https://img.shields.io/badge/Apache%20Ant-Build-A81C7D?style=flat-square&logo=apacheant&logoColor=white" alt="Apache Ant" />
 </p>
 
-- Apache NetBeans como entorno de desarrollo.
-- Apache Ant para la compilación y generación del archivo ejecutable `.jar`.
-- Git y GitHub para control de versiones y publicación del proyecto.
+- **Apache NetBeans** como entorno de desarrollo integrado.
+- **Apache Ant** para compilación y generación del archivo `.jar`.
+
+### 🌿 Control de versiones
+
+<p>
+  <img src="https://skillicons.dev/icons?i=git,github" alt="Git y GitHub" />
+</p>
+
+- **Git** para control de versiones.
+- **GitHub** para publicación, documentación y preservación del proyecto.
 
 ---
 
 ## ▶️ Ejecución
 
-Abrir el proyecto desde **Apache NetBeans** y ejecutar:
+Abrir la carpeta `interfaces` desde **Apache NetBeans** y ejecutar:
 
 ```text
 Clean and Build
 Run Project
 ```
 
-También puede ejecutarse el archivo `.jar` generado dentro de la carpeta `dist` una vez compilado.
+También puede ejecutarse el archivo `.jar` generado dentro de la carpeta `interfaces/dist` una vez compilado.
 
 ---
 
@@ -177,7 +179,7 @@ También puede ejecutarse el archivo `.jar` generado dentro de la carpeta `dist`
 ```text
 SistemaBibliotecario/
 ├── docs/
-│   └── logo.png
+│   └── logo.jpeg
 ├── interfaces/
 │   ├── src/
 │   │   ├── imagenes/
@@ -225,9 +227,9 @@ SistemaBibliotecario/
 - [x] Préstamo de libros.
 - [x] Facturas dinámicas.
 - [x] Recibos dinámicos.
-- [x] Ventana Acerca de.
+- [x] Ventana **Acerca de**.
 - [x] Identidad visual del proyecto.
-- [x] README profesional.
+- [x] Documentación profesional.
 - [x] Publicación en GitHub.
 
 ---
@@ -249,7 +251,7 @@ Restauración del código legado, corrección de funcionalidades, actualización
 
 ---
 
-## 📜 Licencia
+## 📜 Licencia y contexto académico
 
 Este proyecto fue desarrollado originalmente con fines **académicos** para el ITLA.
 
@@ -259,9 +261,9 @@ La restauración realizada en **2026** tiene como finalidad preservar el proyect
 
 ## 🙌 Agradecimientos
 
-- 🏫 Instituto Tecnológico de las Américas (ITLA)
-- 👨‍🏫 Prof. Keneth John Aponte Alonzo
-- 👥 Equipo de desarrollo original (2016)
+- 🏫 Instituto Tecnológico de las Américas (ITLA).
+- 👨‍🏫 Prof. Keneth John Aponte Alonzo.
+- 👥 Equipo de desarrollo original de 2016.
 
 ---
 
