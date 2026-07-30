@@ -14,11 +14,12 @@
 
 Aplicación de escritorio desarrollada en Java Swing para gestionar usuarios, préstamos, compras de libros, facturas y recibos dentro de un entorno bibliotecario académico.
 
+[![Estado](https://img.shields.io/badge/Estado-Finalizado-success?style=for-the-badge)](#-estado-del-proyecto)
 [![Java](https://img.shields.io/badge/Java-Swing-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
 [![NetBeans](https://img.shields.io/badge/Apache_NetBeans-IDE-1B6AC6?style=for-the-badge&logo=apachenetbeanside&logoColor=white)](https://netbeans.apache.org/)
 [![Ant](https://img.shields.io/badge/Apache_Ant-Build-A81C7D?style=for-the-badge&logo=apacheant&logoColor=white)](https://ant.apache.org/)
 
-> Estado actual: **Proyecto restaurado, funcional, documentado y preparado para portafolio profesional.**
+> Estado actual: **Proyecto finalizado, restaurado, funcional, documentado y preparado para portafolio profesional.**
 
 </div>
 
@@ -343,6 +344,8 @@ Durante el proceso de mantenimiento se realizaron las siguientes mejoras:
 ---
 
 ## 🚦 Estado del proyecto
+
+**Estado general: ✅ Finalizado**
 
 - [x] Restauración del código original.
 - [x] Corrección de navegación.
