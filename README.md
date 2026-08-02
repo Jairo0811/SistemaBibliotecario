@@ -2,7 +2,7 @@
 
 <p align="center">
   <img
-    src="docs/logo.jpeg"
+    src="docs/logo.png"
     alt="Logo de Sistema Bibliotecario"
     width="420"
   />
