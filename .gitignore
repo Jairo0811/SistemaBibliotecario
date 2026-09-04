@@ -1,1 +1,16 @@
+# Build outputs
+/interfaces/build/
 /interfaces/dist/
+*.class
+
+# NetBeans local/private configuration
+/interfaces/nbproject/private/
+
+# macOS metadata
+.DS_Store
+._*
+__MACOSX/
+
+# Local SQL Server database files
+*.mdf
+*.ldf
