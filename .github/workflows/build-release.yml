@@ -1,0 +1,131 @@
+name: Build executable release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - "interfaces/**"
+      - ".github/workflows/build-release.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Build self-contained JAR
+        shell: powershell
+        run: |
+          $ErrorActionPreference = "Stop"
+
+          New-Item -ItemType Directory -Force -Path deps, build/classes, build/fat, dist | Out-Null
+
+          $absoluteLayoutUrl = "https://repo1.maven.org/maven2/org/netbeans/external/AbsoluteLayout/RELEASE180/AbsoluteLayout-RELEASE180.jar"
+          Invoke-WebRequest -Uri $absoluteLayoutUrl -OutFile "deps/AbsoluteLayout.jar"
+
+          $sources = Get-ChildItem "interfaces/src" -Recurse -Filter "*.java" | ForEach-Object { $_.FullName }
+          if (-not $sources) {
+            throw "No se encontraron archivos Java para compilar."
+          }
+
+          & javac --release 8 -encoding UTF-8 -cp "deps/AbsoluteLayout.jar" -d "build/classes" $sources
+          if ($LASTEXITCODE -ne 0) {
+            throw "La compilación Java falló."
+          }
+
+          Copy-Item "interfaces/src/imagenes" "build/classes/imagenes" -Recurse -Force
+          Copy-Item "build/classes/*" "build/fat" -Recurse -Force
+
+          Push-Location "build/fat"
+          & jar xf "../../deps/AbsoluteLayout.jar"
+          Pop-Location
+
+          if (Test-Path "build/fat/META-INF/MANIFEST.MF") {
+            Remove-Item "build/fat/META-INF/MANIFEST.MF" -Force
+          }
+
+          Get-ChildItem "build/fat/META-INF" -Recurse -File -ErrorAction SilentlyContinue |
+            Where-Object { $_.Extension -in ".SF", ".RSA", ".DSA" } |
+            Remove-Item -Force -ErrorAction SilentlyContinue
+
+          & jar cfe "dist/SistemaBibliotecario.jar" ventanas.interfaz -C "build/fat" .
+          if ($LASTEXITCODE -ne 0) {
+            throw "No se pudo generar el JAR ejecutable."
+          }
+
+          & jar tf "dist/SistemaBibliotecario.jar" | Select-String "ventanas/interfaz.class"
+          if ($LASTEXITCODE -ne 0) {
+            throw "El JAR no contiene la clase principal."
+          }
+
+      - name: Build Windows application image
+        shell: powershell
+        run: |
+          $ErrorActionPreference = "Stop"
+
+          New-Item -ItemType Directory -Force -Path "package-input", "package" | Out-Null
+          Copy-Item "dist/SistemaBibliotecario.jar" "package-input/SistemaBibliotecario.jar" -Force
+
+          & jpackage `
+            --type app-image `
+            --name "SistemaBibliotecario" `
+            --input "package-input" `
+            --main-jar "SistemaBibliotecario.jar" `
+            --main-class "ventanas.interfaz" `
+            --dest "package" `
+            --vendor "Jairo Matías" `
+            --description "Sistema Bibliotecario - Proyecto académico ITLA 2016 restaurado en 2026"
+
+          if ($LASTEXITCODE -ne 0) {
+            throw "No se pudo generar la aplicación Windows."
+          }
+
+          if (-not (Test-Path "package/SistemaBibliotecario/SistemaBibliotecario.exe")) {
+            throw "No se generó SistemaBibliotecario.exe."
+          }
+
+          Compress-Archive -Path "package/SistemaBibliotecario/*" -DestinationPath "dist/SistemaBibliotecario-Windows-x64.zip" -Force
+
+      - name: Upload workflow artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: SistemaBibliotecario-v1.0.0
+          path: |
+            dist/SistemaBibliotecario.jar
+            dist/SistemaBibliotecario-Windows-x64.zip
+          if-no-files-found: error
+
+      - name: Publish GitHub Release
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $ErrorActionPreference = "Stop"
+          $tag = "v1.0.0"
+          $title = "v1.0.0 — Academic Restoration"
+
+          gh release view $tag *> $null
+          if ($LASTEXITCODE -ne 0) {
+            gh release create $tag `
+              --target "${{ github.sha }}" `
+              --title $title `
+              --notes "Restauración final del proyecto académico Sistema Bibliotecario (ITLA, Programación 1, 2016-C3). Incluye un JAR ejecutable autocontenido y un paquete Windows x64 con SistemaBibliotecario.exe y runtime Java integrado."
+          }
+
+          gh release upload $tag `
+            "dist/SistemaBibliotecario.jar" `
+            "dist/SistemaBibliotecario-Windows-x64.zip" `
+            --clobber
