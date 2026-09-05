@@ -18,10 +18,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Java 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "17"
@@ -38,12 +38,12 @@ jobs:
 
           $sources = Get-ChildItem "interfaces/src" -Recurse -Filter "*.java" | ForEach-Object { $_.FullName }
           if (-not $sources) {
-            throw "No se encontraron archivos Java para compilar."
+            throw "No Java source files were found."
           }
 
           & javac --release 8 -encoding UTF-8 -cp "deps/AbsoluteLayout.jar" -d "build/classes" $sources
           if ($LASTEXITCODE -ne 0) {
-            throw "La compilación Java falló."
+            throw "Java compilation failed."
           }
 
           Copy-Item "interfaces/src/imagenes" "build/classes/imagenes" -Recurse -Force
@@ -63,12 +63,12 @@ jobs:
 
           & jar cfe "dist/SistemaBibliotecario.jar" ventanas.interfaz -C "build/fat" .
           if ($LASTEXITCODE -ne 0) {
-            throw "No se pudo generar el JAR ejecutable."
+            throw "Executable JAR creation failed."
           }
 
           & jar tf "dist/SistemaBibliotecario.jar" | Select-String "ventanas/interfaz.class"
           if ($LASTEXITCODE -ne 0) {
-            throw "El JAR no contiene la clase principal."
+            throw "The JAR does not contain the main class."
           }
 
       - name: Build Windows application image
@@ -86,15 +86,15 @@ jobs:
             --main-jar "SistemaBibliotecario.jar" `
             --main-class "ventanas.interfaz" `
             --dest "package" `
-            --vendor "Jairo Matías" `
-            --description "Sistema Bibliotecario - Proyecto académico ITLA 2016 restaurado en 2026"
+            --vendor "Jairo Matias" `
+            --description "Sistema Bibliotecario - ITLA academic project from 2016 restored in 2026"
 
           if ($LASTEXITCODE -ne 0) {
-            throw "No se pudo generar la aplicación Windows."
+            throw "Windows application image creation failed."
           }
 
           if (-not (Test-Path "package/SistemaBibliotecario/SistemaBibliotecario.exe")) {
-            throw "No se generó SistemaBibliotecario.exe."
+            throw "SistemaBibliotecario.exe was not generated."
           }
 
           Compress-Archive -Path "package/SistemaBibliotecario/*" -DestinationPath "dist/SistemaBibliotecario-Windows-x64.zip" -Force
@@ -115,14 +115,15 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
           $tag = "v1.0.0"
-          $title = "v1.0.0 — Academic Restoration"
+          $title = "v1.0.0 - Academic Restoration"
+          $notes = "Final restoration of the Sistema Bibliotecario academic project (ITLA, Programacion 1, 2016-C3). Includes a self-contained executable JAR and a Windows x64 package with SistemaBibliotecario.exe and an integrated Java runtime."
 
           gh release view $tag *> $null
           if ($LASTEXITCODE -ne 0) {
             gh release create $tag `
               --target "${{ github.sha }}" `
               --title $title `
-              --notes "Restauración final del proyecto académico Sistema Bibliotecario (ITLA, Programación 1, 2016-C3). Incluye un JAR ejecutable autocontenido y un paquete Windows x64 con SistemaBibliotecario.exe y runtime Java integrado."
+              --notes $notes
           }
 
           gh release upload $tag `
