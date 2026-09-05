@@ -109,24 +109,23 @@ jobs:
           if-no-files-found: error
 
       - name: Publish GitHub Release
-        shell: powershell
+        shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $ErrorActionPreference = "Stop"
-          $tag = "v1.0.0"
-          $title = "v1.0.0 - Academic Restoration"
-          $notes = "Final restoration of the Sistema Bibliotecario academic project (ITLA, Programacion 1, 2016-C3). Includes a self-contained executable JAR and a Windows x64 package with SistemaBibliotecario.exe and an integrated Java runtime."
+          set -euo pipefail
+          tag="v1.0.0"
+          title="v1.0.0 - Academic Restoration"
+          notes="Final restoration of the Sistema Bibliotecario academic project (ITLA, Programacion 1, 2016-C3). Includes a self-contained executable JAR and a Windows x64 package with SistemaBibliotecario.exe and an integrated Java runtime."
 
-          gh release view $tag *> $null
-          if ($LASTEXITCODE -ne 0) {
-            gh release create $tag `
-              --target "${{ github.sha }}" `
-              --title $title `
-              --notes $notes
-          }
+          if ! gh release view "$tag" >/dev/null 2>&1; then
+            gh release create "$tag" \
+              --target "${{ github.sha }}" \
+              --title "$title" \
+              --notes "$notes"
+          fi
 
-          gh release upload $tag `
-            "dist/SistemaBibliotecario.jar" `
-            "dist/SistemaBibliotecario-Windows-x64.zip" `
+          gh release upload "$tag" \
+            "dist/SistemaBibliotecario.jar" \
+            "dist/SistemaBibliotecario-Windows-x64.zip" \
             --clobber
