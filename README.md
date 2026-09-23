@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/ITLA-2016--C3-0057B8?style=for-the-badge" alt="ITLA 2016-C3">
+  <img src="https://img.shields.io/badge/ITLA-SOF--003-0057B8?style=for-the-badge" alt="ITLA SOF-003">
 </p>
 
 Aplicación de escritorio desarrollada en Java Swing para gestionar usuarios, préstamos, compras de libros, facturas y recibos dentro de un entorno bibliotecario académico.
@@ -18,6 +18,7 @@ Aplicación de escritorio desarrollada en Java Swing para gestionar usuarios, pr
 [![Java](https://img.shields.io/badge/Java-Swing-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
 [![NetBeans](https://img.shields.io/badge/Apache_NetBeans-IDE-1B6AC6?style=for-the-badge&logo=apachenetbeanside&logoColor=white)](https://netbeans.apache.org/)
 [![Ant](https://img.shields.io/badge/Apache_Ant-Build-A81C7D?style=for-the-badge&logo=apacheant&logoColor=white)](https://ant.apache.org/)
+[![Build & Release](https://github.com/Jairo0811/SistemaBibliotecario/actions/workflows/build-release.yml/badge.svg)](https://github.com/Jairo0811/SistemaBibliotecario/actions/workflows/build-release.yml)
 
 > Estado actual: **Proyecto finalizado, restaurado, funcional, documentado y preparado para portafolio profesional.**
 
@@ -54,7 +55,7 @@ En **junio de 2026**, el proyecto fue restaurado, corregido y documentado para p
 
 ---
 
-## 🎓 Información académica original
+## 🎓 Información académica
 
 | Dato | Información |
 |---|---|
@@ -65,15 +66,19 @@ En **junio de 2026**, el proyecto fue restaurado, corregido y documentado para p
 | Período académico | 2016-C3 |
 | Modalidad | Proyecto Final Grupal |
 
-### 👥 Integrantes del proyecto original
+### 👥 Equipo académico original
 
-| Integrante | Matrícula |
+| 👤 Integrante | 🆔 Matrícula |
 |---|---|
-| Reydi Isaac Charles Frias | 2015-2965 |
-| Francis Jairo Matías Rosario | 2015-2984 |
-| Eduandy Isabel Cruz Abreu | 2015-3017 |
-| Orlando Antonio Dominici Vanterpool | 2015-3029 |
-| Freddy Nicolas Mejia Peña | 2015-3038 |
+| 👨🏻‍💻 Reydi Isaac Charles Frias | 2015-2965 |
+| 👨🏻‍💻 Francis Jairo Matías Rosario | 2015-2984 |
+| 👩🏻‍💻 Eduandy Isabel Cruz Abreu | 2015-3017 |
+| 👨🏻‍💻 Orlando Antonio Dominici Vanterpool | 2015-3029 |
+| 👨🏻‍💻 Freddy Nicolas Mejia Peña | 2015-3038 |
+
+## 🧭 Continuidad académica
+
+Dentro de la colección académica preservada del ITLA no se ha verificado todavía una segunda coincidencia inequívoca por profesor o integrante del equipo original que justifique una línea adicional. Esta sección se mantiene explícita para no inferir relaciones no documentadas.
 
 ---
 
@@ -101,11 +106,11 @@ Preservar uno de los primeros proyectos académicos del autor y demostrar su evo
 
 ---
 
-# 🧱 Stack tecnológico
+## 🧱 Stack tecnológico
 
-## ⚙️ Lenguaje y lógica de aplicación
+### ⚙️ Lenguaje y lógica de aplicación
 
-<div align="center">
+<div>
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" title="Java" width="52" height="52" />
 
@@ -118,9 +123,9 @@ Preservar uno de los primeros proyectos académicos del autor y demostrar su evo
 | Lógica funcional | Validaciones, navegación, compras, préstamos y comprobantes |
 | Modelo de interacción | Programación orientada a eventos |
 
-## 🖥️ Interfaz de escritorio
+### 🖥️ Interfaz de escritorio
 
-<div align="center">
+<div>
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java Swing" title="Java Swing" width="52" height="52" />
 
@@ -133,9 +138,9 @@ Preservar uno de los primeros proyectos académicos del autor y demostrar su evo
 | Diseño | AbsoluteLayout de NetBeans |
 | Recursos visuales | Imágenes PNG/JPEG empaquetadas en el proyecto |
 
-## 🧰 Entorno de desarrollo y compilación
+### 🧰 Entorno de desarrollo y compilación
 
-<div align="center">
+<div>
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Apache_NetBeans_Logo.svg" alt="Apache NetBeans" title="Apache NetBeans" width="52" height="52" />
 <img src="https://www.apache.org/logos/res/ant/ant.png" alt="Apache Ant" title="Apache Ant" width="52" height="52" />
@@ -149,9 +154,9 @@ Preservar uno de los primeros proyectos académicos del autor y demostrar su evo
 | Proyecto | Estructura estándar de NetBeans |
 | Artefacto generado | Archivo ejecutable `.jar` |
 
-## 🛠️ Control de versiones
+### 🛠️ Control de versiones
 
-<div align="center">
+<div>
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" title="Git" width="52" height="52" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" title="GitHub" width="52" height="52" />
