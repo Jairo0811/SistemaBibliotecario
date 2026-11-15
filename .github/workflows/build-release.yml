@@ -1,5 +1,9 @@
 name: Build executable release
 
+# Compila en cada cambio de master o pull request (artifacts de CI).
+# Solo un tag de versión (vX.Y.Z) publica una GitHub Release, y nunca
+# reemplaza los assets de una release existente.
+
 on:
   workflow_dispatch:
   push:
@@ -8,13 +12,24 @@ on:
     paths:
       - "interfaces/**"
       - ".github/workflows/build-release.yml"
+    tags:
+      - "v*.*.*"
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "interfaces/**"
+      - ".github/workflows/build-release.yml"
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build-windows:
     runs-on: windows-latest
+
+    outputs:
+      artifact: ${{ steps.meta.outputs.artifact }}
 
     steps:
       - name: Checkout repository
@@ -25,6 +40,19 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
+
+      - name: Resolve build metadata
+        id: meta
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            echo "artifact=SistemaBibliotecario-${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+            echo "app_version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+          else
+            echo "artifact=SistemaBibliotecario-ci-${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+            echo "app_version=" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Build self-contained JAR
         shell: powershell
@@ -66,29 +94,50 @@ jobs:
             throw "Executable JAR creation failed."
           }
 
-          & jar tf "dist/SistemaBibliotecario.jar" | Select-String "ventanas/interfaz.class"
+          $entries = & jar tf "dist/SistemaBibliotecario.jar"
           if ($LASTEXITCODE -ne 0) {
-            throw "The JAR does not contain the main class."
+            throw "Could not list the JAR contents."
           }
+
+          $required = @(
+            "ventanas/interfaz.class",
+            "org/netbeans/lib/awtextra/AbsoluteLayout.class",
+            "imagenes/fondito.png",
+            "imagenes/itla.png",
+            "imagenes/userrrrrr.png"
+          )
+          foreach ($entry in $required) {
+            if (-not ($entries -contains $entry)) {
+              throw "The JAR does not contain $entry."
+            }
+          }
+          Write-Host "JAR verified: main class, AbsoluteLayout and image resources present."
 
       - name: Build Windows application image
         shell: powershell
+        env:
+          APP_VERSION: ${{ steps.meta.outputs.app_version }}
         run: |
           $ErrorActionPreference = "Stop"
 
           New-Item -ItemType Directory -Force -Path "package-input", "package" | Out-Null
           Copy-Item "dist/SistemaBibliotecario.jar" "package-input/SistemaBibliotecario.jar" -Force
 
-          & jpackage `
-            --type app-image `
-            --name "SistemaBibliotecario" `
-            --input "package-input" `
-            --main-jar "SistemaBibliotecario.jar" `
-            --main-class "ventanas.interfaz" `
-            --dest "package" `
-            --vendor "Jairo Matias" `
-            --description "Sistema Bibliotecario - ITLA academic project from 2016 restored in 2026"
+          $jpackageArgs = @(
+            "--type", "app-image",
+            "--name", "SistemaBibliotecario",
+            "--input", "package-input",
+            "--main-jar", "SistemaBibliotecario.jar",
+            "--main-class", "ventanas.interfaz",
+            "--dest", "package",
+            "--vendor", "Jairo Matias",
+            "--description", "Sistema Bibliotecario - ITLA academic project from 2016 restored in 2026"
+          )
+          if ($env:APP_VERSION) {
+            $jpackageArgs += @("--app-version", $env:APP_VERSION)
+          }
 
+          & jpackage @jpackageArgs
           if ($LASTEXITCODE -ne 0) {
             throw "Windows application image creation failed."
           }
@@ -97,35 +146,88 @@ jobs:
             throw "SistemaBibliotecario.exe was not generated."
           }
 
+          if (-not (Test-Path "package/SistemaBibliotecario/runtime/bin")) {
+            throw "The integrated Java runtime was not generated."
+          }
+
           Compress-Archive -Path "package/SistemaBibliotecario/*" -DestinationPath "dist/SistemaBibliotecario-Windows-x64.zip" -Force
 
       - name: Upload workflow artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: SistemaBibliotecario-v1.0.0
+          name: ${{ steps.meta.outputs.artifact }}
           path: |
             dist/SistemaBibliotecario.jar
             dist/SistemaBibliotecario-Windows-x64.zip
           if-no-files-found: error
 
+  publish-release:
+    needs: build-windows
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ needs.build-windows.outputs.artifact }}
+          path: dist
+
       - name: Publish GitHub Release
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
         run: |
           set -euo pipefail
-          tag="v1.0.0"
-          title="v1.0.0 - Academic Restoration"
-          notes="Final restoration of the Sistema Bibliotecario academic project (ITLA, Programacion 1, 2016-C3). Includes a self-contained executable JAR and a Windows x64 package with SistemaBibliotecario.exe and an integrated Java runtime."
 
-          if ! gh release view "$tag" >/dev/null 2>&1; then
-            gh release create "$tag" \
-              --target "${{ github.sha }}" \
-              --title "$title" \
-              --notes "$notes"
+          if [[ ! "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Tag '$TAG' does not match vMAJOR.MINOR.PATCH; nothing will be published."
+            exit 1
           fi
 
-          gh release upload "$tag" \
+          if ! git merge-base --is-ancestor "$GITHUB_SHA" origin/master; then
+            echo "::error::Tag '$TAG' points to a commit that is not part of master; nothing will be published."
+            exit 1
+          fi
+
+          # Una release publicada es evidencia histórica: nunca se sobrescriben sus assets.
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "::error::Release '$TAG' already exists. Its assets are immutable; publish a new version tag instead."
+            exit 1
+          fi
+
+          title="$TAG"
+          heading=$(grep -m1 -E "^## \[$TAG\]" CHANGELOG.md || true)
+          if [[ -n "$heading" ]]; then
+            title="$TAG - ${heading##* - }"
+          fi
+
+          awk -v tag="$TAG" '
+            $0 ~ "^## \\[" tag "\\]" { found = 1; next }
+            found && /^## / { exit }
+            found { print }
+          ' CHANGELOG.md > notes.md
+
+          {
+            echo ""
+            echo "### Assets"
+            echo ""
+            echo "- \`SistemaBibliotecario-Windows-x64.zip\`: \`SistemaBibliotecario.exe\` with an integrated Java runtime (no separate Java installation required)."
+            echo "- \`SistemaBibliotecario.jar\`: self-contained executable JAR (requires Java 8 or newer)."
+          } >> notes.md
+
+          gh release create "$TAG" \
             "dist/SistemaBibliotecario.jar" \
             "dist/SistemaBibliotecario-Windows-x64.zip" \
-            --clobber
+            --verify-tag \
+            --title "$title" \
+            --notes-file notes.md
