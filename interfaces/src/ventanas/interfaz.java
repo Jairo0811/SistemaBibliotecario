@@ -151,7 +151,7 @@ public class interfaz extends javax.swing.JFrame {
             return;
         }
 
-        if (usuario.equals("admin") && password.equals("1234")) {
+        if (AlmacenUsuarios.validar(usuario, password)) {
             Decision menu = new Decision();
             menu.setVisible(true);
             dispose();

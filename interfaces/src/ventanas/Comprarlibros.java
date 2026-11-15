@@ -25,6 +25,9 @@ public class Comprarlibros extends javax.swing.JFrame {
     private int total = 0;
     private boolean compraRealizada = false;
 
+    // Evita que un mismo libro se agregue dos veces por accidente (restauración 2026).
+    private final java.util.Set<Integer> librosSeleccionados = new java.util.LinkedHashSet<Integer>();
+
     public Comprarlibros() {
         initComponents();
         this.setSize(560, 420);
@@ -46,11 +49,16 @@ public class Comprarlibros extends javax.swing.JFrame {
         return String.format("%,d", monto);
     }
 
-    private void agregarLibroSeleccionado(int indice) {
+    private boolean agregarLibroSeleccionado(int indice) {
+        if (!librosSeleccionados.add(indice)) {
+            return false;
+        }
+
         seleccionados.append((indice + 1) + ". " + nombresLibros[indice]
                 + " - RD$" + formatearMonto(precios[indice]) + "\n");
         total += precios[indice];
         compraRealizada = false;
+        return true;
     }
 
     private String obtenerFechaActual() {
@@ -215,7 +223,13 @@ public class Comprarlibros extends javax.swing.JFrame {
                 return;
             }
 
-            agregarLibroSeleccionado(numeroLibro - 1);
+            if (!agregarLibroSeleccionado(numeroLibro - 1)) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Ese libro ya está en la lista de seleccionados.",
+                        "Libro repetido",
+                        javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
+            }
 
             javax.swing.JOptionPane.showMessageDialog(this,
                     "Libro seleccionado correctamente.",
@@ -232,6 +246,7 @@ public class Comprarlibros extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         seleccionados.setText("");
+        librosSeleccionados.clear();
         total = 0;
         compraRealizada = false;
 
