@@ -18,6 +18,9 @@ public class prestamos extends javax.swing.JFrame {
             "Ingeniería de Software"
     };
 
+    // Evita que un mismo libro se agregue dos veces por accidente (restauración 2026).
+    private final java.util.Set<Integer> librosSeleccionados = new java.util.LinkedHashSet<Integer>();
+
     public prestamos() {
         initComponents();
         this.setSize(560, 420);
@@ -35,8 +38,13 @@ public class prestamos extends javax.swing.JFrame {
         librosdis.setText(lista);
     }
 
-    private void agregarLibroSeleccionado(int indice) {
+    private boolean agregarLibroSeleccionado(int indice) {
+        if (!librosSeleccionados.add(indice)) {
+            return false;
+        }
+
         seleccionados.append((indice + 1) + ". " + librosDisponibles[indice] + "\n");
+        return true;
     }
 
     private String obtenerFechaActual() {
@@ -211,7 +219,13 @@ public class prestamos extends javax.swing.JFrame {
                 return;
             }
 
-            agregarLibroSeleccionado(numeroLibro - 1);
+            if (!agregarLibroSeleccionado(numeroLibro - 1)) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Ese libro ya está en la lista de préstamo.",
+                        "Libro repetido",
+                        javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
+            }
 
             javax.swing.JOptionPane.showMessageDialog(this,
                     "Libro seleccionado para préstamo correctamente.",
@@ -228,6 +242,7 @@ public class prestamos extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
         seleccionados.setText("");
+        librosSeleccionados.clear();
 
         for (int i = 0; i < librosDisponibles.length; i++) {
             agregarLibroSeleccionado(i);

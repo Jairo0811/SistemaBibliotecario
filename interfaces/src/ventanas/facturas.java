@@ -180,10 +180,36 @@ public class facturas extends javax.swing.JFrame {
     }
 
     private void imprimirActionPerformed(java.awt.event.ActionEvent evt) {
-        javax.swing.JOptionPane.showMessageDialog(this,
-                "Factura enviada a impresión correctamente.",
-                "Imprimir factura",
-                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        if (java.awt.print.PrinterJob.lookupPrintServices().length == 0) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "No se encontró ninguna impresora disponible en este equipo.",
+                    "Imprimir comprobante",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        try {
+            // Abre el diálogo de impresión nativo de Java; devuelve false si el usuario cancela.
+            boolean impreso = factura.print();
+
+            if (impreso) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "El comprobante fue enviado a la impresora.",
+                        "Imprimir comprobante",
+                        javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "La impresión fue cancelada.",
+                        "Imprimir comprobante",
+                        javax.swing.JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (java.awt.print.PrinterException e) {
+            String detalle = e.getMessage() != null ? e.getMessage() : e.getClass().getSimpleName();
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "No se pudo imprimir el comprobante.\n" + detalle,
+                    "Error de impresión",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void activarEnterEnBotones(javax.swing.JButton... botones) {

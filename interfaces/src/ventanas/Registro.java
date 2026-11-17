@@ -187,8 +187,18 @@ public class Registro extends javax.swing.JFrame {
             return;
         }
 
+        if (!AlmacenUsuarios.registrar(usuario, password)) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "El nombre de usuario \"" + usuario + "\" ya existe.\nElija otro nombre de usuario.",
+                    "Usuario duplicado",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
         javax.swing.JOptionPane.showMessageDialog(this,
-                "Usuario registrado correctamente.",
+                "Usuario registrado correctamente.\n"
+                        + "Puede iniciar sesión mientras la aplicación permanezca abierta.\n"
+                        + "El registro no se guarda al cerrar el programa.",
                 "Registro exitoso",
                 javax.swing.JOptionPane.INFORMATION_MESSAGE);
 
