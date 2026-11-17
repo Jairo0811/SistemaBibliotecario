@@ -22,7 +22,7 @@ Convención de resultados:
 | B1 | Todos los `.java` compilan con `javac --release 8` | Automatizada (local y CI) | PASS |
 | B2 | El JAR contiene `ventanas/interfaz.class`, AbsoluteLayout e imágenes de `imagenes/` | Automatizada (local y CI) | PASS |
 | B3 | `Main-Class: ventanas.interfaz` en el manifiesto | Automatizada (local) | PASS |
-| B4 | `jpackage` genera `SistemaBibliotecario.exe` y `runtime/` en Windows | Automatizada (CI, Windows) | Ver ejecución del workflow |
+| B4 | `jpackage` genera `SistemaBibliotecario.exe` y `runtime/` en Windows | Automatizada (CI, `windows-latest`) | PASS ([ejecución 44166157685](https://github.com/Jairo0811/SistemaBibliotecario/actions/runs/44166157685), PR #6) |
 | B5 | `ant -f interfaces -Dlibs.absolutelayout.classpath=… clean jar` genera `ProyectoFinal.jar` | Automatizada (local) | PASS |
 | B6 | `build/`, `dist/`, `.class` y `nbproject/private/` no quedan en Git | Automatizada (`git status`) | PASS |
 
